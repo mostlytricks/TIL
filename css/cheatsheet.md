@@ -1,7 +1,7 @@
 # CSS Cheat Sheet
 ---
 - 참고 : [생활코딩-css소개](https://opentutorials.org/course/2418/13667)
-
+- 추가 : [생활코딩-css-웹레서피](https://opentutorials.org/module/2398/13570)
 
 
 
