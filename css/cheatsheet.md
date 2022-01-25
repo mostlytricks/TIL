@@ -5,10 +5,9 @@
 
 
 
-## 부제 고민 중
---- 
 
-
+## 상세
+---
 ### text-align : 문자열 정렬
 ```html
 <style>
@@ -36,5 +35,21 @@ flex-direction: row;  // column; row-reverse; column-reverse;
 
 
 
+
 ## 몇 가지 예제
+--- 
+### box-model
+```jsx
+border-width:10px;
+border-style:solid;
+border-color:red;
+<!-- 하기와 동일 -->
+
+border: 10px solid red; <!-- 테두리 두깨-->
+padding: 20px; // 테두리 ~ 내용
+margin : 40px; // 테두리 ~ 바깥 요소
+width :100px;
+height : 100px;
+```
+
 
