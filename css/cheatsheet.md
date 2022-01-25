@@ -52,4 +52,24 @@ width :100px;
 height : 100px;
 ```
 
+### media-query
+```jsx
+// 동적으로 확인 후 적용, max-width : 최대값, min-width:최소값.
+// 상단부터 우선순위.
+@media (max-width:600px){
+  body{
+    background-color: green;
+  }
+}
+@media (max-width:500px){
+  body{
+    background-color: red;
+  }
+}
+@media (min-width:601px){
+  body{
+    background-color: blue;
+  }
+}
+```
 
