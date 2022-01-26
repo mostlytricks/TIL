@@ -98,3 +98,65 @@ store.subscribe(update);
 
    - 참고 문서 [Why Front 머시기](https://itnext.io/why-every-beginner-front-end-developer-should-know-publish-subscribe-pattern-72a12cd68d44)
 
+
+## Chap3
+---
+### VDOM 및 React에 대한 이해
+- React 작동
+  - jsx => Babel =>React.createElement( ) => VDOM =>(React) => Real DOM
+  - Component 변경 시? 
+    - New VDOM vs origin VDOM => 변경점만 갱신
+
+- VDOM의 구조
+  - tagName, props, children
+  - React : one VDOM, children 통해 정보를 순차적으로 전달. // 트리구조로 저장.
+  - react.createElement 가 핵심 (vdom객체 생성)
+
+- Babel 및 createElement
+  - Babel(createElement(type, props, children)) => type의 첫 글자에 따라 다르게 인식
+    - type(소문자) => bulid-in component
+    - type(대문자) => 사용자 컴포넌트
+      - 개별로 만든 class 네이밍 룰 유의할 것
+
+- React -> component
+  - Class형 component
+    - render() 함수 필수 구현
+    - 생성자 통한 호출 필요 -> props 전달 시 유의 
+```jsx
+constructor(props){
+  super(props);
+}
+```
+    - life-cylce method 유의
+      - componentDidMound() 등, render 직후 호출되는 함수 존재
+  - 함수형 component
+    - life cycle 없음 / hook 이용해 별도 구성 가능
+    - VDOM 객체 return하는 함수들.
+    - 상태를 내부에 useState()를 통해 구현 가능해지며 경계 모호해짐
+
+- **State**
+  - 상태 변경 시, React->render() 호출할 수 있게 제공되는 함수 이용해야함
+  - Class형 : 객체 instance의 속성으로 상태 유지
+  - 함수형 : hook이용해서 상태 관리
+
+- Hook
+  - 함수형 component에서 상태 가질 수 있도록 지원
+  - useState() :  배열 return
+```jsx
+const result = useState(1);
+const counter = result[0];
+const setCounter = result[1];
+
+// 상기 구조를 통상 하기와같이 분해하여 이용 중
+const [counter, setCounter] = useState(1); 
+```
+
+  - 함수 호출 시마다 useState(1)이 진행되며 초기화 되어야 하는게 아닌가?
+    - 함수형 component의 hook을 전역 배열에 넣고, 기존에 값이 있다면 초기화 하지 않고 return함.
+    - hook은 코드의 최상위에서만 호출해야 함. [공식 문서](https://ko.reactjs.org/docs/hooks-rules.html)
+      - 반복문, 조건문, 중첩합수 X -> 반복 시 동일 순서로 hook 호출 보장. -> useState, useEffect의 안정성 증대.
+    - react component 안에서만 호출해야 함. 
+      - java script 함수에서 호출하지말 것.
+      - custom hook 만들어서 hook호출은 가능.
+        - use~~로 시작하는 함수, useAlpha(parameter) => return isAlpha 형식이면 ok
+        - useAlpha 내에 useEffect / useState사용 가능.
