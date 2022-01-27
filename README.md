@@ -1,11 +1,24 @@
 # TIL
 Today I learned, which is always better only if it is written. holy cow. 
 
-# How to Use
+# What/How I do write
 - 1 commits per day (hope so)
-- Writing on Readings (hope so 2)
-- Be familiar with writing down concepts in my head, briefly. (hope so 3)
+- Writing on Readings (hope so)
+- Be familiar with writing down concepts in my head, briefly. (hope so)
 
+# How to Read
+- Programming Langauge 
+  - [React]
+  - [JavaScript]
+  - [Java]
+  - [Python]
+- Architect
+  - [Design Patterns] 
+  - [Cloud] 
+- Good codes I guess
+  - [2022] 
+- Others
+  
 # Going To Do
 - 동시성 처리 관련 예제 구현 : 2022.01.27
   - Producer - Consumer
