@@ -4,7 +4,7 @@
   - 소규모 개인 프로젝트는 그냥 local에 설치하는게 관리하기 편하다.
 
 ### 기본 명령어
-```node
+```node-js
 npm --version
 npm install npm
 npm init  // package.json 기반 셋업
