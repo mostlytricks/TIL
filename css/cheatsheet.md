@@ -2,8 +2,11 @@
 ---
 - 참고 : [생활코딩-css소개](https://opentutorials.org/course/2418/13667)
 - 추가 : [생활코딩-css-웹레서피](https://opentutorials.org/module/2398/13570)
+- 추가 중: [코딩팩토리-css](https://www.codingfactory.net/12334)
 
-
+- 원전 
+  - [adobe색상환](https://color.adobe.com/ko/create/color-wheel)
+  - [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/)
 
 
 ## 상세
