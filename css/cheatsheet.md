@@ -73,3 +73,20 @@ height : 100px;
 }
 ```
 
+### 배경 적용 팁 
+```jsx
+body {
+  background : rgba(255,255,255,0.7);
+  // 글자 영향도 없게 투명도 적용시, rgba => 투명도에 값줘서 별도로 지정해야.
+}
+#case2 {
+  background : white;
+  opacity : 0.7;
+  // 전체 투명도 적용시, 표기되는 폰트도 같이 투명해짐. 해당 component전체 투명도
+}
+#case3 {
+  background : linear-gradient(135deg, rgba(124,217,162,0.85) 0%, rgba(238,244,248,0.97) 50%, rgba(149,191,240,0.94) 100%);
+  // 배경 그라데이션 적용. powerpoint의 적용 양식과 유사하다.
+}
+```
+
