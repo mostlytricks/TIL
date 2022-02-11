@@ -41,18 +41,19 @@ class Solution { //배열 카피하지 마라했는데 문제 안본 경우.
 class Solution {
     public void rotate(int[][] matrix) {
         int ml = matrix[0].length;
+        int temp =0;
         for (int i =0; i < ml; i++){
             for (int j=i+1; j< ml; j++){
-                int temp2 = matrix[i][j];
+                temp = matrix[i][j];
                 matrix[i][j]=matrix[j][i];
-                matrix[j][i]= temp2;
+                matrix[j][i]= temp;
             }
         }
         for (int i =0; i < ml; i++){
             for (int j=0; j< ml/2; j++){
-                int temp3 = matrix[i][j];
+                temp = matrix[i][j];
                 matrix[i][j]=matrix[i][ml-1-j];
-                matrix[i][ml-1-j]= temp3;
+                matrix[i][ml-1-j]= temp;
             }
         }
     }
