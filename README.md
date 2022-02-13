@@ -8,7 +8,7 @@ Today I learned, which is always better only if it is written. holy cow.
 
 # How to Read
 - Programming Langauge 
-  - [React](./react)
+  - [React](./react/react.md)
   - [JavaScript]
   - [Java]
   - [Python]
