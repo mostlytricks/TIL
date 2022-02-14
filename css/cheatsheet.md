@@ -79,6 +79,22 @@ box-sizing : content-box | border-box | initial | inherit
 }
 ```
 
+### 이미지와 텍스트의 가운데 선 일치
+> 전체 구획 크기 설정 후, flex option > center 정렬이 깔끔
+>
+> 만약 flex 미지원할 경우, text-align : center만 단독으로.
+```jsx
+.tempGrid{
+  height : 36px;
+  margin-bottom : auto;
+  margin-top : auto;
+  
+  display: flex;
+  align-items: center;
+}
+```
+
+
 ### 배경 적용 팁 
 ```jsx
 body {
