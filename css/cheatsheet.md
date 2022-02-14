@@ -56,7 +56,12 @@ height : 100px;
 
 box-sizing : content-box | border-box | initial | inherit
 <!-- 콘텐트 영역 기준 | 테두리 기준 | 기본값 설정 | 부모 요소의 속성값 상속 -->
+
+border-bottom: 1px solid #e9ecef; 
+<!-- 바닥에만 회색선 -->
 ```
+
+
 
 ### media-query
 ```jsx
