@@ -116,7 +116,7 @@ const CalendarCellStyled = styled.div`
   ${props=>(props.curMonth!=props.month) &&css`   
     opacity:0.3; // 해당월 아니면 회색음영 처리
    `}
-';
+`;
 
 const CalendarCell = (props)=>{
     return (
