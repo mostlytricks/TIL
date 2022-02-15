@@ -117,3 +117,46 @@ body {
 }
 ```
 
+## Alpha to Omega
+--- 
+
+### 격자 맞추기
+```jsx
+// going to do..
+// display : flex.. flex direction.. 
+```
+
+
+### 단위박스 내에서 정렬하기
+```jsx
+// going to do..
+// float... text-align.. align-items..
+// margin auto.. padding auto?
+
+```
+
+### 정렬된 컨텐츠 및 박스 디자인하기
+```jsx
+// background-color..
+
+// box border, color
+
+
+// text border, font, size, options, align
+ font-family : Apple SD Gothic Neo, "Malgun Gothic"; // 가능한 폰트 부터 순차 적용
+ 
+```
+[코딩팩토리-세로 가운데 정렬 트릭](https://www.codingfactory.net/10835)
+
+
+### 트릭 들
+```jsx
+// text gradient
+// button color gradient
+background : linear-gradient(135deg, rgba(124,217,162,0.85) 0%, rgba(238,244,248,0.97)50%, rgba(149,191,240,0.94) 100%  );
+// transition
+```
+
+
+
+
