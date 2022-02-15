@@ -125,6 +125,6 @@ const CalendarCell = (props)=>{
         </CalendarCellStyeld>
     )
 }
+export default CalenderCell;
 ```
 > map으로 List component등록시,key 유의할 것. react표준에 따라 key ={index}처리 하자 경고문 사라짐.
-
