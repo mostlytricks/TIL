@@ -135,6 +135,12 @@ body {
 // going to do..
 // float... text-align.. align-items..
 // margin auto.. padding auto?
+align-content : ; 
+
+align-items : ;
+
+align-self : auto | stretch | center | flex-start | flex-end | baseline | initial | inherit;
+<!-- 컨테이너 내 해당 component의 위치 선택. flex-start/ flex-end / center 정도-->
 
 ```
 
