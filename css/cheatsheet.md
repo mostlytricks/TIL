@@ -29,11 +29,14 @@ float : left; // right;
 
 ```
 
-### flex : 태그 내 component들에 대한 정렬 방식
+### flex 및 display: 태그 내 component들에 대한 정렬 방식
 ```css
 display: flex;
 <!-- 하기 태그 사용 권장 -->
 flex-direction: row;  // column; row-reverse; column-reverse;
+display : inline | block | contents | grid | table | none
+<!-- 각각 span(no width) / width포함 / 다음 child 끌어올림 / block level grid / table처럼 / 안보임 등-->
+<!-- block (버튼 등 독립적으로 끌어올림) / flex 많이 사용 중-->
 ```
 
 
@@ -149,12 +152,30 @@ body {
 [코딩팩토리-세로 가운데 정렬 트릭](https://www.codingfactory.net/10835)
 
 
-### 트릭 들
+### 트릭들
 ```jsx
 // text gradient
 // button color gradient
 background : linear-gradient(135deg, rgba(124,217,162,0.85) 0%, rgba(238,244,248,0.97)50%, rgba(149,191,240,0.94) 100%  );
 // transition
+```
+
+> 버튼을 이용하는 방법 - react, styled-components
+```jsx
+// 평시
+background: #38d9a9; 
+// 버튼 위에 마우스 hover, 약간 옅은 색 표기
+&:hover{ 
+  background: #63e6be;
+}
+// 버튼 클릭 중일 때, 짙은 색으로 강조
+&:active{
+  background: #20c997;
+}
+cursur: pointer; 
+display :block; // width 전체 차지
+
+
 ```
 
 
