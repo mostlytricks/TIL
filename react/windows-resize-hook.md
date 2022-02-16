@@ -64,4 +64,5 @@ function App(){
 - 이것만 올릴 경우, 작은 변화도 모두 캐치해서 event listening됨
 - throttle혹은 감지 주기 제어 필요.
 
-참고 : [stackoverflow get-viewport-window-height]
+참고 : [stackoverflow get-viewport-window-height](https://stackoverflow.com/questions/36862334/get-viewport-window-height-in-reactjs)
+참고2:[medium debound-handle-browser-resize](https://medium.com/geekculture/debounce-handle-browser-resize-like-a-pro-994cd522e14b)
