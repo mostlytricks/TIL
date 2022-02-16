@@ -117,7 +117,14 @@ body {
 #case3 {
   background : linear-gradient(135deg, rgba(124,217,162,0.85) 0%, rgba(238,244,248,0.97) 50%, rgba(149,191,240,0.94) 100%);
   // 배경 그라데이션 적용. powerpoint의 적용 양식과 유사하다.
+  background-size : 120% 120%;
+  background-position-x : ~ ;
+  // linear gradient 적용시, 산출 식에 따라 배경 바깥의 범위는 repeat되는 현상 확인
 }
+- linear gradient배경의 복제 문제는 배경 grid가 padding box 까지만 인식되고, 바깥의 영역은 background가 아님에 따름. => 하기 링크 참고해서 적용
+- 통합 background적용시, size expanding만 해도 커버 가능. (20px 상당 커버 필요)
+- 단색일 경우, 문제 없음(배경색 복제해도 동일하게 인식
+[stackoverflow - weird effect when applying transparent border](https://stackoverflow.com/questions/31115024/weird-effect-when-applying-transparent-border-over-an-element-with-a-gradient-ba)
 ```
 
 ## Alpha to Omega
