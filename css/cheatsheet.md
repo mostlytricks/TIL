@@ -175,7 +175,18 @@ background: #38d9a9;
 cursur: pointer; 
 display :block; // width 전체 차지
 
-
+${props => props.open && css`
+  // 버튼 클릭 시 open(true | false ) 전달, 색상 변경
+  background : #ff6b6b; // 붉은 계통의 기본색
+  &:hover { // 마우스 hover시 옅은 붉은색
+    background : #ff8787;
+  }
+  &:active { // 마우스 클릭 중일 때 보다 짙은 계통
+    background: #fa5252;
+  }
+  // 클릭시 회전
+  transform : translate(-50%, 50%) rotate(45deg); 
+`}
 ```
 
 
