@@ -174,7 +174,9 @@ background: #38d9a9;
 }
 cursur: pointer; 
 display :block; // width 전체 차지
-
+transform : translate(-50%, 50%); // 위치 보정. 버튼의 가운데 정렬이 힘드니, 통상 옵션에 translate 이용에 -50%, 50% 위치만큼 강제로 이동시킴. 
+// z-index와 함께 작용하여 grid에 겹치게 버튼 위치 가능.
+ 
 ${props => props.open && css`
   // 버튼 클릭 시 open(true | false ) 전달, 색상 변경
   background : #ff6b6b; // 붉은 계통의 기본색
@@ -188,7 +190,7 @@ ${props => props.open && css`
   transform : translate(-50%, 50%) rotate(45deg); 
 `}
 ```
-
+! z-index와 transform : translate( px | %, px | %) 조합 유의할 것 - grid경계 또는 특정 위치로 버튼을 강제위치 시킬 수 있다. 
 
 
 
