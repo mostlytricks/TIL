@@ -1,5 +1,7 @@
-# Clean code TIL, with nomadcoder
----
+# Clean code TIL,
+with Nomadcoder :p
+
+
 
 ### Table of Contents
 ---
