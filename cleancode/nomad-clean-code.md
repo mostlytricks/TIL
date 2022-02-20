@@ -14,7 +14,7 @@ with Nomadcoder :p
 ---
 * [Day 0 - 사전 준비](#abstract)
 * [Day 1 - 깨끗한 코드](#chapter-1-clean-code)
-* [Day 2 - 의미 있는 이름](# chapter-2-name)
+* [Day 2 - 의미 있는 이름](#chapter-2-name)
 
 
 
@@ -53,7 +53,8 @@ with Nomadcoder :p
  - 샘플 코드를 다른 언어로 작성해보며 따라가봄직 싶다. 아니면 예전에 작성한 코드를 발굴해본다던지.
 </details>
 
-
+<br/>
+<br/>
 
 
 ## Chapter 2 Name
@@ -96,6 +97,10 @@ with Nomadcoder :p
 </details>
 
 
+<br/>
+<br/>
+
 ### Memo.
+---
 #노개북 #노마드 북클럽
 ...!
