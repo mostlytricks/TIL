@@ -28,8 +28,10 @@ const useWindowDimensions =() => { //custom hook
       width, height;
     }
     
-    const [windowDimensions, setWindowDimensions] = useState({width:0, height:0});
+    const [windowDimensions, setWindowDimensions] = useState({width: hasWindow ? window.innerWidth : null, height:hasWindow ? window.innerHeight : null});
+    // 기존 width : 0 , height : 0으로 처리했으나 최초 로드시 0으로 init은 문제가 있음
     // 내부에 함수calling으로 initiate시 warning 발생 확인 -> useState(getWindow..)
+    // 우선 코드 복사로 대처.
     
     useEffect(()=>{
       if (hasWindow) {
@@ -60,9 +62,32 @@ function App(){
 
 ```
 
+```jsx
+// 실제 사용 방식 - 크기 변경에 따른 component display 여부
+import styled,{css} from "styled-components";
+
+const StyeldCalendar = styeld.div`
+${prop => prop.windowSize && (prop.windowSize.width < 1140 && css` // window size가 있을 경우, width check
+display :none;`}
+`;
+
+const Calendar=()=>{
+  const windowSize = useWindowDimensions();
+
+  return (
+    <StyledCalendar windowSize ={windowSize}>//para 전달
+    </StyledCalendar>
+  )
+}
+
+
+```
+
+
 #### 개선필요
 - 이것만 올릴 경우, 작은 변화도 모두 캐치해서 event listening됨
 - throttle혹은 감지 주기 제어 필요.
 
 참고 : [stackoverflow get-viewport-window-height](https://stackoverflow.com/questions/36862334/get-viewport-window-height-in-reactjs)
-참고2:[medium debound-handle-browser-resize](https://medium.com/geekculture/debounce-handle-browser-resize-like-a-pro-994cd522e14b)
+
+참고2 : [medium debound-handle-browser-resize](https://medium.com/geekculture/debounce-handle-browser-resize-like-a-pro-994cd522e14b)
