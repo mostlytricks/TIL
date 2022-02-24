@@ -18,6 +18,7 @@ Today I learned, which is always better only if it is written. holy cow.
 - Good codes I guess
   - [2022] 
 - Others
+  - [NomadBookClub - Cleancode](./cleancode/nomad-clean-code.md)
   
 # Going To Do
 - 동시성 처리 관련 예제 구현 : 2022.01.27
