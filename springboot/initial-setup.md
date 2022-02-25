@@ -55,3 +55,8 @@ spring.
 
 ```
 
+### 초기 연결 시 Controller가 동작하지 않는다면 (GetMapping등 annotation이 동작 않는경우)
+[참고](https://cceeun.tistory.com/183)
+- application(spring application구문)하위의 패키지에 controller위치여부
+- controller 별로 @Controller annotation있는지 확인 아니면 bean등록 안되기도.
+
