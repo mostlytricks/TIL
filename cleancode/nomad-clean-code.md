@@ -17,6 +17,7 @@ with Nomadcoder :p
 * [Day 2 - 의미 있는 이름](#chapter-2-name)
 * [Day 3 - 다른 TIL 살펴보기]
 * [Day 4 - 함수](#chapter-3-function)
+* [Day 5 - 주석](#chapter-4-comment)
 
 
 ## Chapter 1 Clean Code
