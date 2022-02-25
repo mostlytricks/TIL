@@ -49,3 +49,9 @@ public class MongoConfig{
 }
 ```
 
+- application.properties에 작성 필요
+```
+spring.
+
+```
+
