@@ -51,12 +51,39 @@ public class MongoConfig{
 
 - application.properties에 작성 필요
 ```
-spring.
+spring.data.mongodb.authentication-database=admin
+spring.data.mongodb.username=<usename>
+spring.data.mongodb.password=<password>
+spring.data.mongodb.database=<database-name>
+spring.data.mongodb.port=27017 #default
+spring.data.mongodb.host=localhost #or ip addr
+```
+
+> 상기 application.properties와 동등하게, MongoConfig.java파일로 관리가능
+```java
+// configs/MongoConfig.java
+@Configuration
+public Class MongoConfig{
+  @Bean
+   public MongoClient mongoClient(){
+    return MongoClient.create();
+   }
+  @Bean
+  public MongoTemplate mongoTemplate(){
+    return new MongoTempalte(mongoClient(), "database-name";
+  }
+}
+- application.properties와 MongoTemplate활용한 config 둘다 사용시, MongoTemplate이 우선 적용됨 확인.
 
 ```
 
+
+<br/>
+<br/>
+
 ### 초기 연결 시 Controller가 동작하지 않는다면 (GetMapping등 annotation이 동작 않는경우)
+---
 [참고](https://cceeun.tistory.com/183)
 - application(spring application구문)하위의 패키지에 controller위치여부
-- controller 별로 @Controller annotation있는지 확인 아니면 bean등록 안되기도.
+- controller 별로 @Controller annotation있는지 확인 아니면 bean등록 안되기도.올바
 
