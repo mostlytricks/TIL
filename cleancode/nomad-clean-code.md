@@ -181,7 +181,40 @@ public void delete(Page page) {
 
 <br/>
 <br/>
+ 
 
+## Chapter 4 Comment
+--- 
+> 2022.02.25
+### 기억 및 메모
+
+> 주석은 오래될수록 코드에서 멀어진다
+- 간혹 언제썼는지 svn으로 변경점 비교직어야 겨우찾는 주석까지. 오래 묵혀둔 주석은 쉰김치보다 쉽지 않더라만은.
+- 주석 대상과 주석 내용이 멀어지는 다음 사례도 인상적이었다. 주석에도 관리가 필요함 유의할 것
+
+ 
+> 코드로 의도를 표현해라!
+
+```java
+// bad
+
+// 직원에게 복지 혜택 자격이 있는지 조사한다
+if((employee.flags & HOURLY_FLAG) && (employee.age >65))
+ 
+// good 
+if (employee.isEligibleForFullBenefits())
+```
+- java는 장황한 언어라 했던가, 주석의 불필요함은 공감되지만 employee안에 정의되어야 하는 메소드가 우후죽순 추가되는게 우려는된다.
+- employee안에 eligible 뿐 아니라, 신청여부가 추가된다면? benefits이 아닌 유사한 다른 '혜택'개념이 추가된다면?
+- employee에 대한 가독성/간소화는 어떻게 유지하는게 맞을까.
+ 
+> 좋은 주석
+> 
+> - 법적인 주석
+>
+> - 정보를 제공하는 
+ 
+ 
 
 ### Memo.
 ---
