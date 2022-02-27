@@ -27,3 +27,11 @@ Today I learned, which is always better only if it is written. holy cow.
     - Read first, then Write? or add sth.
   - **Dining Philosophers**
    
+- spirng boot 활용 기반 : 2022.02.28
+  - MongoDB connect => clear, need to make docs 
+  - Spring JPA + (oracle | mysql | postgresql) => Need to do once
+  - Spring Security
+  - Spring Cloud
+  - [FreeCodeCamp/AmigoCode강좌](https://www.youtube.com/watch?v=VVn9OG9nfH0)  
+
+- react기반 가변형 대시보드.
