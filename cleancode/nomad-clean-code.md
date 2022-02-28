@@ -259,6 +259,23 @@ if (employee.isEligibleForFullBenefits())
  - 결국 개발자들이 책임 회피를 위해 주석을 쓰는지, 유용한 정보를 남겨두기 위해 주석을 쓰는지 목적에 따라 갈리는게 아닐까. 주석은 개발자 문화를 보여주는 투명한 진실의 방이라는 생각이 든다.
  
  </details>
+
+<br/>
+ <br/>
+ 
+## Chapter 5 format
+--- 
+> 2022.02.28
+### 기억 및 메모 
+
+> 500줄을 넘지 않고 대부분 200줄 정도인 파일로도
+
+ 
+  
+<details>
+<summary> **오늘의 소감 한 마디** </summary>
+ 
+ </details>
  
 <br/>
 <br/>
