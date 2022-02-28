@@ -18,6 +18,7 @@ with Nomadcoder :p
 * [Day 3 - 다른 TIL 살펴보기]
 * [Day 4 - 함수](#chapter-3-function)
 * [Day 5 - 주석](#chapter-4-comment)
+* [Day 6..? - 형식 맞추기](#chapter-5-format)
 
 
 ## Chapter 1 Clean Code
@@ -263,7 +264,7 @@ if (employee.isEligibleForFullBenefits())
 <br/>
  <br/>
  
-## Chapter 5 format
+## Chapter 5 Format
 --- 
 > 2022.02.28
 ### 기억 및 메모 
@@ -295,15 +296,25 @@ if (employee.isEligibleForFullBenefits())
 > - 짧은 행이 바람직하다
 >
 > - 가로 정렬은 별로 유용하지 못하다. 정렬이 필요할 정도로 목록이 길다면 클래스를 쪼개야 한다는 의미다.
-
+>
+> - 빈 while,for문도 올바로 들여쓰고 괄호로 감싸두자.
+>
+> - 팀은 한 가지 규칙에 합의해야 한다. (...) 개개인이 따로 국밥처럼 맘대로 짜내는 코드는 피해야 한다.
+ 
+- 실제로 팀 단위로 개바랗면 좋겠지만, 사람들이 들어오고 나가는 구조에서 이런 형식 관리가 잘 될 수 있을까는 걱정이다.
 
 
  
   
 <details>
 <summary> **오늘의 소감 한 마디** </summary>
+- 사실 오늘의 내용은 팀 단위로 형식에 대해 논의를 한번이라도 해보거나, 설정을 팀에서 잡아주며 프로젝트 착수시 크게 걱정할 필요가 없는 부분으로 생각한다.
+
+- 결국 IDE의 역할이 매우 확대대고 있다는 부분이 아닐까. 반대로 소스 push / pull 시에만 이런 형식을 갖추도록 설정된다면 고민을 덜해도 될 분야가 아닌가 싶다.
+
+- 파이썬의 들여쓰기는 조심할 필요가 있다고 생각한다. java에서 단일행의 while /for 로도 암살당하는 마당에. 
  
- </details>
+</details>
  
 <br/>
 <br/>
