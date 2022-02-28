@@ -1,10 +1,26 @@
 # React
----
+
 ## TOC
+- 0. [개요](#description)
+
+
+## Description
+- 표준 문서 해독 및 hooks / 기타 자주 사용되는 package들 예제 모음 목적
+- 묘수 풀이. 
+<br/>
+<br/>
 
 
 
-## 0. 직접 구성한 예제
+
+## Hooks
+
+### useReducer
+- [문서](https://reactjs.org/docs/hooks-reference.html#usereducer)
+
+
+
+## 3. 직접 구성한 예제
 ---
 
 ### axios 
