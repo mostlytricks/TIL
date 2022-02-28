@@ -1,9 +1,13 @@
 # React
 ---
+## TOC
 
 
 
-### axios 예제
+## 0. 직접 구성한 예제
+---
+
+### axios 
 > api 호출 부, 실제 display 부분을 분리하여 관리하는게 편리함
 > 
 > getWeather로 감싸지 않는경우, axios 호출이 interval하게 실행되는 현상 확인
@@ -50,3 +54,4 @@ const WeatherDisplay=(prop)=>{
 ```
 
 [참고 - fetch api data with axios](https://levelup.gitconnected.com/fetch-api-data-with-axios-and-display-it-in-a-react-app-with-hooks-3f9c8fa89e7b)
+
