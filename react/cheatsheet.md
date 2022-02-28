@@ -16,9 +16,16 @@
 ## Hooks
 
 ### useReducer
-- [문서](https://reactjs.org/docs/hooks-reference.html#usereducer)
+문서는 여기 -> [문서](https://reactjs.org/docs/hooks-reference.html#usereducer)
+- 개요 : useState의 대체. 
+  - 앞선 상태가 다음 상태에 영향 주거나 여러개의 sub-value에 연계될때 사용. 
+  - dispatch를 이용해서 deep update 이용 가능
 
 
+<details>
+<summary> 상세 </summary>
+
+</details/>
 
 ## 3. 직접 구성한 예제
 ---
