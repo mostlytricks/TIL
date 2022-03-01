@@ -19,7 +19,7 @@ with Nomadcoder :p
 * [Assignment 4 - 함수](#chapter-3-function)
 * [Assignment 5 - 주석](#chapter-4-comment)
 * [Assignment 6..? - 형식 맞추기](#chapter-5-format)
-* [Assignment 7..? - 객체와 자료구조](#chapter-6-object-&-data-structure)
+* [Assignment 7..? - 객체와 자료구조](#chapter-6-object--data-structure)
 
 ## Chapter 1 Clean Code
 --- 
