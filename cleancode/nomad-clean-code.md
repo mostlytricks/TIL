@@ -355,9 +355,15 @@ if (employee.isEligibleForFullBenefits())
 <br/>
 
 > 그렇다면 cxtx 객체에 임시 파일을 생성하라고 시키면 어떨까?
-> ₩BufferedOutputStream bos = cxtxt.createScartchFilieStream(classFileName)₩
+ 
+```
+BufferedOutputStream bos = ctxt.createScartchFilieStream(classFileName)
+```
+- ctxt에 options라는 객체가 있다면 options에 역할이 너무 크다고 생각하고, 사실 cxtx에 종속된다고 생각한다. (ctxt.option과 para.option은 다르겠지...?)
+- 그러나 ctxt에서 임시파일 생성이라는 역할까지 떠안으면, 너무 범위가 커지는게 아닐까 우려된다. 이후 유사한 option들을 기반으로 interface를 새로 짜지 않을까 싶은데. 
 
-
+> 자료 공개 변수만
+ㄱ
  
  
 <details>
