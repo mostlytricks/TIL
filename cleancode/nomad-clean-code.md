@@ -12,14 +12,14 @@ with Nomadcoder :p
 
 ## Table of Contents
 ---
-* [Day 0 - 사전 준비](#abstract)
-* [Day 1 - 깨끗한 코드](#chapter-1-clean-code)
-* [Day 2 - 의미 있는 이름](#chapter-2-name)
-* [Day 3 - 다른 TIL 살펴보기]
-* [Day 4 - 함수](#chapter-3-function)
-* [Day 5 - 주석](#chapter-4-comment)
-* [Day 6..? - 형식 맞추기](#chapter-5-format)
-
+* [Assignment 0 - 사전 준비](#abstract)
+* [Assignment 1 - 깨끗한 코드](#chapter-1-clean-code)
+* [Assignment 2 - 의미 있는 이름](#chapter-2-name)
+* [Assignment 3 - 다른 TIL 살펴보기]
+* [Assignment 4 - 함수](#chapter-3-function)
+* [Assignment 5 - 주석](#chapter-4-comment)
+* [Assignment 6..? - 형식 맞추기](#chapter-5-format)
+* [Assignment 7..? - 객체와 자료구조](#chapter-6-object-&-data-structure)
 
 ## Chapter 1 Clean Code
 --- 
@@ -321,7 +321,7 @@ if (employee.isEligibleForFullBenefits())
 <br/>
 
  
-## Chapter 6 Data structure
+## Chapter 6 Object & Data structure
 --- 
 > 2022.03.01
 ### 기억 및 메모  
