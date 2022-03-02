@@ -207,3 +207,14 @@ ${props => props.open && css`
 
 
 
+
+### React에서 동작이 이상한 경우
+
+- height: 100%; 가 동작하지 않아요
+
+```css
+
+width : 100%;
+height : 100vh; //vh로 하면 잘 동작한다.
+
+```
