@@ -160,7 +160,7 @@ const Page =() =>{
   return ...
   }
 ```
-
+ 
 - react router 내부에서는 :username과 같이 사용하자 
   
   
@@ -168,3 +168,44 @@ const Page =() =>{
   
 #### useLocation  
   
+#### useNavigate
+```jsx
+import { Outlet, useNavigate } from 'react-router-dom';
+
+const Layout = () => {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    // 이전 페이지로 이동
+    navigate(-1);
+  };
+
+  const goArticles = () => {
+    // articles 경로로 이동
+    navigate('/articles');
+  };
+
+  return (
+    <div>
+      <header style={{ background: 'lightgray', padding: 16, fontSize: 24 }}>
+        <button onClick={goBack}>뒤로가기</button>
+        <button onClick={goArticles}>게시글 목록</button>
+      </header>
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
+};
+export default Layout;
+```
+  
+- -1 : 뒤로가기 / 1 : 앞으로 가기 (이미 뒤로가기가 진행된 경우) / -2 : 뒤로 두 번.. 등
+- 주소 입력 시 해당 경로로 이동 가능
+ 
+#### NavLink
+- 활성화된 링크에 다른 css적용 기법
+  
+#### Navigate
+- 로그인이 안된 경우 로그인 페이지 제공 등, 컴포넌트를 화면에 보여주는 순간 사용
+- 
