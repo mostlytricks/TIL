@@ -259,6 +259,41 @@ const InputBoxStyled= styled.input`
 
 ```
 
+### 원형 버튼에 react-router-dom의 link를 달아주고 싶어요
+! Nesting an html button in an html a (or vice-versa) is not valid html  [stackoverflow](https://stackoverflow.com/questions/42463263/wrapping-a-react-router-link-in-an-html-button)
+- react-router-dom에서 제공하는 Link의 경우, 당연하게도 <a> tag를 내재하고 있다.
+- 해서 button과 Link를 조합할경우, `will render in a web browser, but it is not semantic, accessible, or valid html` 라고 한다
+- 2차 참고 [validator.w3.org]()
+
+=> Link 안에 div를 만들어줘서 형태를 잡고, Link 내부의 <a> tag를 찾아서 div와 외부 형태를 일치시켜주면 원형 링크가 만들어진다. 
+  
+```jsx
+const IconStyled = styled.div`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; // 원형으로 만들경우 50%
+  background:rgba(226,230,233,1.0);
+  
+  svg{ // 내부에 이미지 삽입했던 경우
+    position:relative;
+    top : 50%;
+    left : 50%;
+    transform : translate(-50%, -50%);
+    margin:auto;
+  }
+`
+ 
+const CircularLink = (props) => {
+   return (
+    <Link to = "/google" style {{height:"48px", borderRadius:"50%"}}> 
+      <IconStyled>
+        <MdOutlineEmail fontSize={"1.2em"} color = {"rgba(0,0,0,0.55)"}/>
+      </IconStyled>
+  </Link>
+  );  
+}
+```
+- html tag안에서 직접 스타일 제어한건 아쉽지만.. 굳이 분리한다면 외부를 styled-component로 한번 더 감싸거나, link를 styled-component의 link로 덮어쓰면 되겠다.
 
 
 ### React에서 동작이 이상한 경우
