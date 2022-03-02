@@ -239,6 +239,27 @@ svg {
 - transform >translate로 해당 도형의 크기에 비례해서 -50%씩 각각 이동.크.
 
 
+### input box의 더러운 border를 숨기고 싶어요
+
+```jsx
+const InputBoxStyled= styled.input`
+  border :0px;
+  background : rgba(236,240,243, 1.0);
+  position : relative;
+  top: 0%;
+  width: 280px;
+  height : 78px;
+  margin : 0 0 ;
+  margin-left : 20px;
+  
+  &:focus {
+    outline: none ; // border두께가 아닌 outline으로 적용 유의
+  }
+`;
+
+```
+
+
 
 ### React에서 동작이 이상한 경우
 
