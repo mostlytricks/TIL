@@ -132,6 +132,9 @@ const WeatherDisplay=(prop)=>{
   
 ```jsx
 import { Route, Routes} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+  
 import PageA from './PageA';
 import PageB from './PageB';
 
@@ -143,6 +146,7 @@ const App = () =>{
       {/*<div></div> 이 태그는 여기서 사용 시 에러를 발생 시킨다. routes안은 route만 허용.*/}
     </Routes>
     <div>이 구획은 Route된 컴포넌트 하단에 try ~ catch ~ finally의 finally처럼 붙는다.</div>
+    <Link to = "/">집가자 </Link> {/* 하이퍼 링크 형태의 이동 링크가 나타난다.*/}
   )
 }
   
