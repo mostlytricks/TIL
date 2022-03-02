@@ -221,9 +221,22 @@ const AmazingBox = styled.div`
     -12px -12px 16px 0 rgba(255,255,255,0.5);
   // box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];
 `
-
-
 ```
+
+### 이미지를 해당 구획 안에서 가운데 정렬
+```
+width: 48px;
+height: 48px;
+svg {
+  position: relative;
+  top :50%;
+  left : 50%;
+  transform:translate(-50%, -50%);
+}
+```
+- transform을 사용 가능해야 하는 한계가 있지만..
+- 상대적인 위치 => top, left로 중점에서 시작 후,
+- transform >translate로 해당 도형의 크기에 비례해서 -50%씩 각각 이동.크.
 
 
 
