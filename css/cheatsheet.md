@@ -206,6 +206,25 @@ ${props => props.open && css`
 ! z-index와 transform : translate( px | %, px | %) 조합 유의할 것 - grid경계 또는 특정 위치로 버튼을 강제위치 시킬 수 있다. 
 
 
+### 뉴모피즘 New Morphism
+```
+const AmazingBox = styled.div`
+  width: 1200px;
+  height : 480px;
+   
+  background: rgba(236,240,243,1.0);
+  
+  // 박스 그림자를 이용해 튀어나와보이게 연출
+  box-shadow : 12px 12px 16px 0 rgba(255,255,255,0.5),
+    12px -12px 16px 0 rgba(255,255,255,0.5),
+    -12px 12px 16px 0 rgba(255,255,255,0.5),
+    -12px -12px 16px 0 rgba(255,255,255,0.5);
+  // box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];
+`
+
+
+```
+
 
 
 ### React에서 동작이 이상한 경우
