@@ -24,6 +24,7 @@
 
 <details>
 <summary> 상세 </summary>
+  
 ```jsx
 const initialState = {count: 0};
 
@@ -106,3 +107,42 @@ const WeatherDisplay=(prop)=>{
 
 [참고 - fetch api data with axios](https://levelup.gitconnected.com/fetch-api-data-with-axios-and-display-it-in-a-react-app-with-hooks-3f9c8fa89e7b)
 
+
+
+
+## Link, Page
+
+### react-router-dom
+
+- 개요 : 컴포넌트 단위로 페이지 라우팅 지원
+- 참고 - [velopert님의 velog](https://velog.io/@velopert/react-router-v6-tutorial)
+- 사용법
+  - App등 라우팅 지원할 최상위 component를 <BrowserRouter>로 감싸기   
+  - 상기 컴포넌트의 내부에 상세와 같이 구성
+
+  
+  
+
+<details>
+<summary> 상세 </summary>
+  
+```jsx
+import { Route, Routes} from 'react-router-dom';
+import PageA from './PageA';
+import PageB from './PageB';
+
+const App = () =>{
+  return (
+    <Routes>
+      <Route path ="/" element = {<PageA/>}>
+      <Route path = "/bb" element = {<PageB} />
+      {/*<div></div> 이 태그는 여기서 사용 시 에러를 발생 시킨다. routes안은 route만 허용.*/}
+    </Routes>
+    <div>이 구획은 Route된 컴포넌트 하단에 try ~ catch ~ finally의 finally처럼 붙는다.</div>
+  )
+}
+  
+```
+  
+  
+<details>
