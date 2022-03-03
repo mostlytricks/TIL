@@ -35,3 +35,6 @@
 - react-modal
 
 - react-router-dom
+
+- react-slick
+> 마우스 스크롤, component가 sliding하며 전환 등. 
