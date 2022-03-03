@@ -243,3 +243,14 @@ const Vehicle = (props) =>{
 }
 ```
 - 앞선 배열에 key : value로 담아놓은 component를 그대로 뿌릴 수 있다!
+  
+### 배열 python스럽게 만들기
+```
+const LongIntegerList = [...Array(31).keys()]
+const shiftList = [...Array(31).keys()].map((x)=>{return (x+1)})
+```
+ 
+- 12월 담는 리스트까지는 직접 타이핑했는데, 31은 좀 아닌듯 싶었다.
+- Array로 빈 Array만드는 건 납득했는데, .keys()를 이용 (!) 해서 index만 담은 리스트 생성
+- 이후 변주는 .map() 이용해서 처리. keys()+1과 같이 처리하면 스프레드에 적용이 어떻게 되는지, 문자가 튀어나옴 유의
+  
