@@ -36,5 +36,5 @@
 
 - react-router-dom
 
-- react-slick
+- react-slick / slick-carousel
 > 마우스 스크롤, component가 sliding하며 전환 등. 
