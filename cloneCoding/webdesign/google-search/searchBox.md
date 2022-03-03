@@ -25,7 +25,7 @@
 
 ## 주요 소스 
 
-**> searchBox.js**
+> **searchBox.js**
 
 - 가운데 검색 창, 이미지는 소스 구하기 애매해서 일부 미적용
 - create-react-app에 추가한 세팅 기준, public > image > 필요한  
@@ -90,7 +90,7 @@ const SearchBox = () =>{
 export default SearchBox;
 ```
 
-**> googleSearchGrid.js**
+> **googleSearchGrid.js**
 
 - 상단, 중단 하단으로 나누어 구성
   - 상단은 좌 우 끝단에 버튼 붙이고
@@ -142,7 +142,7 @@ export default GoogleSearchGrid;
 
 ```
 
-**> googleSearchGridMid.js**
+> **googleSearchGridMid.js**
 
 - 검색창과 icon을 분리해두자 정작 깔끔해진 부분
 - 이렇게 단위가 작아지니 디자인 담당하는 코드만 길어지는 느낌
@@ -185,7 +185,7 @@ export default GoogleSearchGridMid;
 ```
 
 
-**> atoms/circularLinkIcons.js**
+> **atoms/circularLinkIcons.js**
 
 - 비슷한 유형의 아이콘이 많이 들어가서, atom으로 추출해보자 시도한 부분
 - 정작 내부적으로는 급하게 짜면서 추상화가 덜되어 아쉬운데, 함수형 컴포넌트에서 더 깔끔하게 추상화가 되는지 의문이다. 상속이 안되지 않나? 추상클래스는?
@@ -289,7 +289,7 @@ const CircularLink = (props) => {
 export default CircularLink;
 ```
 
-**> googleSearchGridTop.js**
+> **googleSearchGridTop.js**
 
 - 좌우 분개와 버튼 opacity처리 
 - 이미지 로딩한 결과가 svg임을 웹에서 확인후, styled-component에서 svg대상으로 덧입힘
@@ -374,7 +374,7 @@ const GoogleSearchGridTop = () =>{
 export default GoogleSearchGridTop;
 ```
 
-**> googleSearchGridBot.js**
+> **googleSearchGridBot.js**
 
 - 여백과 위치 잡기가 의외로 애매했다. content가 없으니 margin으로만 비빈 느낌
 - 이런걸어떻게 자리잡아주지? window 크기라도 변하면 대형 참사가 날거같은데 아직 테스트는 안해봤다.
