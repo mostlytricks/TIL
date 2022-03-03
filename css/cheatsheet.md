@@ -295,7 +295,37 @@ const CircularLink = (props) => {
 ```
 - html tag안에서 직접 스타일 제어한건 아쉽지만.. 굳이 분리한다면 외부를 styled-component로 한번 더 감싸거나, link를 styled-component의 link로 덮어쓰면 되겠다.
 
+### 반원 만드는 트릭
 
+```css
+.half-circle {
+    width: 200px;
+    height: 100px; /* as the half of the width */
+    background-color: gold;
+    border-top-left-radius: 110px;  /* 100px of height + 10px of border */
+    border-top-right-radius: 110px; /* 100px of height + 10px of border */
+    border: 10px solid gray;
+    border-bottom: 0;
+}  
+  
+.half-circle2 {
+    width: 200px;
+    height: 100px; /* as the half of the width */
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border: 10px solid gray;
+    border-bottom: 0;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}  
+```
+  
+- 원통을 반으로 자르는거 찾고 있었는데, 더 대단한걸 발견했다
+- 반원은 border-top-left-raidus로 가자. 
+
+  
 ### React에서 동작이 이상한 경우
 
 - height: 100%; 가 동작하지 않아요
