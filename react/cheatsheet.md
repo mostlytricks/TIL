@@ -209,3 +209,37 @@ export default Layout;
 #### Navigate
 - 로그인이 안된 경우 로그인 페이지 제공 등, 컴포넌트를 화면에 보여주는 순간 사용
 - 
+
+  
+  
+  
+  
+  
+## 트릭
+
+- 주요한 트릭은 styled-component와 연계 필요, css의 cheatsheet.md 참고할 것
+
+### component를 해동해서 뿌려주기.
+```jsx
+const vehicleType= {
+    1 : <DateSelector/>,
+    2 : "O_o",
+    3 : "PhoneCall",
+    4 : "Line",
+    5 : "People",
+    6 : "Activity",
+    7 : "Messages",
+}
+
+const Vehicle = (props) =>{
+
+    const selectedVehicle = props.inlineId +props.trackId*5;
+    console.log(selectedVehicle)
+    return(
+    <VehicleStyled>
+        {vehicleType[selectedVehicle]}
+    </VehicleStyled>
+    );
+}
+```
+- 앞선 배열에 key : value로 담아놓은 component를 그대로 뿌릴 수 있다!
