@@ -8,6 +8,11 @@
   - [adobe색상환](https://color.adobe.com/ko/create/color-wheel)
   - [mdn web docs](https://developer.mozilla.org/en-US/docs/Web/CSS/)
 
+- 치트키 
+  - [glass morphism 생성기](https://css.glass/)
+  - [glass morphism 생성기2](https://hype4.academy/tools/glassmorphism-generator)
+  - [neumorphism 생성기](https://neumorphism.io/#ead1d1)
+
 
 ## 상세
 ---
