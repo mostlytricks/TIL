@@ -17,3 +17,11 @@
 
 
 ### 웹페이지 참고
+- [chaeyeon's tistory - 디자인 블로그](https://chaeyeon-chaeyeon.tistory.com/55?category=1005295) 예제로 고려해볼만한 디자인 트렌드 정리.
+- [dribble](https://dribble.com) 디자인 트렌드. 
+
+### 이미지
+- [pxhere](https://pxhere.com)
+- [pexels](https://pexels.com)
+- [unsplash](https://unsplash.com)
+- [picjumbo](https://picjumbo.com)
