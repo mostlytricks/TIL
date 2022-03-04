@@ -10,7 +10,7 @@
 ## 주요 소스
 
 > atoms/vehicles/notification.js
-```
+```jsx
 import React, {useState, useEffect} from "react";
 import styled, {css} from "styled-components";
 import Vehicle from "../../components/metropolice/vehicle";
