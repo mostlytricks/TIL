@@ -445,6 +445,16 @@ BufferedOutputStream bos = ctxt.createScartchFilieStream(classFileName)
  
 <br/>
 <br/>
+
+## Chapter 9 Error Handling
+--- 
+> 2022.03.06
+### 기억 및 메모   
+ 
+ 
+ 
+<br/>
+<br/>
  
 ### Memo.
 ---
