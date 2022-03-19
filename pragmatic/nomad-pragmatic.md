@@ -72,7 +72,11 @@
 
 ### 오늘 읽어본 다른 사람의 TIL
 
-- 1장 : 
+- 1장 : https://velog.io/@ohdowon064/%EB%85%B8%EA%B0%9C%EB%B9%84-pragmatic-1%EC%9E%A5.-%EC%8B%A4%EC%9A%A9%EC%A3%BC%EC%9D%98-%EC%B2%A0%ED%95%99
+  - 책임감 중요하지. 암암.
+
+- 1장 : https://proamateur92.tistory.com/68
+  - 커뮤니케이션 방식에 대한 고민선이 같았다...! 실무자의 그 무언가가 느껴진다.
 
 
 
@@ -90,6 +94,7 @@
   
 </details>
 
+---
 
 ## 추신.
 > #노마드코더 #노개북 #노마드북클럽 #실용주의 프로그래머 #TIL
