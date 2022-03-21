@@ -216,6 +216,9 @@ end
 
 ### 오늘 읽어본 다른 사람의 TIL
 
+- 2장. [이민호님의 노션](https://minosssss.notion.site/TIL-DAY2-3-aa05433c3ef3406db2ab71c60a56112b)
+  - 계획없이 코딩 말자는 격언이 인상적이다. 외부 API호출은 한번 감싸라는 말이 불현듯 뇌에 스친다.
+
 
 
 <br/><br/>
