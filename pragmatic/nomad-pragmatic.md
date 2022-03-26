@@ -438,6 +438,14 @@ add_score_to_board(score)
 
 <br/>
 
+
+메일로 흥미로운 내용이 와 있었다!
+[victoria yang](https://ilpyoyang.tistory.com/218)
+단정문을 사용해서 불가능... 예제 유의.
+
+- 인풋 검사로 assert쓰라고 이해했었는데, 사실 관점은 일어나면 안되는 일이었다.
+
+
 ### 결론 - 오늘의 소감
 
 <details>
