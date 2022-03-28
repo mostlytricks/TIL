@@ -21,6 +21,8 @@
 
 > [#6 5장](#20220326-til)
 
+> [#7 몇가지 연습문제](#20220328-til)
+
 ---
 ## 2022.03.19 TIL
 - 서문 ~ 1장 실용주의 철학 
@@ -592,6 +594,42 @@ const result = truncate_lines(lines);
 
 ---
 
+## 2022.03.28 TIL
+- 연습 문제 선택 및 풀이
+
+5장까지의 연습문제 23개 중, 한 문제를 골라 풀이과정을 작성해 볼 것!
+
+> 연습 문제 18
+> 일부 자바 개발자들은 어떤 객체를 사용한 다음에는 반드시 그 객체를 가리켰던 변수를 Null로 설정한다. 왜 이것이 좋은 생각일까?
+
+- 어떤 객체의 생성 및 사용 후, 사용 되지 않는 시점에 자동으로 garbage collecting 되기까지 메모리를 점유하기 때문으로 생각한다.
+  
+- Java 프로그램은 bytecode로 컴파일 된 뒤, Java Virtual Machine에서 구동되고, 이 때 JVM의 heap memory에 객체가 생성된다. 
+  이 객체가 해제되지 않는다면, JVM의 GC 전략에 따라 generation 별 gc를 수행해야 한다. 만약 nul로 바꾸지 않은 객체가 살아남아 Old generation으로 이동 된 경우, 이는 heap메모리의 major gc까지 점유를 의미한다. 그렇지 않더라도, java의 gc는 stop the world 방식으로 young generation을 빈번하게 gc하더라도 application의 효율은 떨어질 것이다.
+
+> 정답지 : null로 설정 시 객체를 가리키는 포인터의 수가 줄고, 포인터 갯수가 0이 되면 그 객체는 gc의 대상이 된다.
+* string pool과 유사한 감각인듯 하다. 변수가 가리키는 객체라는 말이 쉬이 와닿지 않는다.
+
+> 정답지 : 실행 시간이 길어서 메모리 사용량이 시간이 지남에 따라 늘어나지 않도록 신경 써야 하는 프로그램 이라면 변수에 Null을 설정하는 것이 중요할 수 있다.
+- 결국은 heap 메모리 점유율인 것 같다. c대비 자체적인 gc가 있다는 점에서 보다 유연한 것으로 보인다.
+- c언어의 경우 runtime error 에대한 지적이 있네. 
+
+참고 문서 : [freecodecamp](https://www.freecodecamp.org/news/garbage-collection-in-java-what-is-gc-and-how-it-works-in-the-jvm/#:~:text=Java%20Garbage%20Collection%20is%20the,memory%20dedicated%20to%20the%20program.) 
+
+
+### 결론 - 오늘의 소감
+
+<details>
+  <summary> 자바는 왜 강인해지는가. 자동화 된 gc, 그리고 이 알고리즘의 고도화 가아닐까.</summary>
+  
+- 이하 생략. 자바는 생각보다 편하다. 장황하긴해도.
+
+</details>
+
+<br/>
+<br/>
+
+---
 ## 추신.
 `#노마드코더 #노개북 #노마드북클럽 #실용주의 프로그래머 #TIL`
 
