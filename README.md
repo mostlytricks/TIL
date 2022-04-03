@@ -1,5 +1,5 @@
 # TIL
-Today I learned, which is always better only if it is written. holy cow. 
+Today I learned, which is always better only if it is written. holy moly. 
 
 # What/How I do write
 - 1 commits per day (hope so)
@@ -9,8 +9,9 @@ Today I learned, which is always better only if it is written. holy cow.
 # How to Read
 - Programming Langauge 
   - [React](./react/react.md)
-  - [JavaScript]
-  - [Java]
+    - main sources, look another repo.
+  - [JavaScript] : 
+  - [Java] : look another repo.
   - [Python]
 - Architect
   - [Design Patterns] 
@@ -18,7 +19,8 @@ Today I learned, which is always better only if it is written. holy cow.
 - Good codes I guess
   - [2022] 
 - Others
-  - [NomadBookClub - Cleancode](./cleancode/nomad-clean-code.md)
+  - [NomadBookClub - Cleancode](./book/study/cleancode/nomad-clean-code.md)
+  - [NomadBookClub - pragmatic](./book/pragmatic/nomad-pragmatic.md)
   
 # Going To Do
 - 동시성 처리 관련 예제 구현 : 2022.01.27
@@ -35,3 +37,8 @@ Today I learned, which is always better only if it is written. holy cow.
   - [FreeCodeCamp/AmigoCode강좌](https://www.youtube.com/watch?v=VVn9OG9nfH0)  
 
 - react기반 가변형 대시보드.
+  - personal portfolio => html + css into react
+
+
+- Java version diff, vm monitoring
+  - java 16, java 17, intStream, stream to list, toboxed ...
