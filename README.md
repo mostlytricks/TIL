@@ -42,3 +42,8 @@ Today I learned, which is always better only if it is written. holy moly.
 
 - Java version diff, vm monitoring
   - java 16, java 17, intStream, stream to list, toboxed ...
+
+
+- How do I test
+  - [cheese10yun님의 깔끔한 정리글](https://cheese10yun.github.io/spring-guide-test-1/)
+  -     
