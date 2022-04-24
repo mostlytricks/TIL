@@ -8,7 +8,7 @@ Today I learned, which is always better only if it is written. holy moly.
 
 # How to Read
 - Programming Langauge 
-  - [React](./react/react.md)
+  - [React](https://github.com/mostlytricks/reactStudy#readme)
     - main sources, look another repo.
   - [JavaScript] : 
   - [Java] : look another repo.
