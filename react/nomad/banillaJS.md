@@ -122,3 +122,99 @@ h1Title.addEventListener("click", () => {
   h1Title.classList.toggle(clickedClass);
 });
 ```
+
+## html을 위한 몇가지 규칙
+- form 안에 input이 있는경우,
+- 1) input 안의 btn이 있고, 클릭 시 자동 submit
+- 2) input에 type submit을 두고, 클릭시 자동 submit
+
+```jsx
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vanilla Challenge</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <form class="login-form">
+      <input
+        type="text"
+        required
+        maxlength="15"
+        type="text"
+        placeholder="What is your name?"
+      />
+      <button>Log In</button>
+      <input type="submit" value="log in input btn" />
+    </form>
+    <script src="src/index.js"></script>
+  </body>
+</html>
+
+```
+
+## js에서 변수 받아서깔끔한 처리하기
+
+```jsx
+const loginForm = document.querySelector(".login-form");
+const loginInput = document.querySelector(".login-form input");
+const loginButton = loginForm.querySelector("button");
+const greeting = document.querySelector(".greeting");
+
+const HIDDEN_CLASSNAME = "hidden";
+
+function onSubmit(e) {
+  const username = loginInput.value;
+  console.log(e);
+  e.preventDefault();
+  loginForm.classList.add(HIDDEN_CLASSNAME);
+  greeting.innerText = `Hello ${username}`;
+  console.log(greeting.innerText);
+  greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+loginForm.addEventListener("submit", onSubmit);
+
+```
+- `${varaible name}` 을 잘써볼것.
+- display:none  vs visibility:hidden => 공간 점유의 문제. display none은 해당 태그를 통째로 날리고, vis~hidden은 그냥 숨긴다.
+
+```jsx
+const gameForm = document.querySelector(".game-form");
+const maxLimit = gameForm.querySelector(".upper-limit");
+const rollTheDice = gameForm.querySelector(".num");
+const result = document.querySelector(".result");
+
+let machineAnswer = -1;
+
+const generateNumber = (max) => {
+  max = parseInt(1) + parseInt(max);
+  machineAnswer = Math.floor(Math.random() * max);
+  console.log(machineAnswer);
+};
+
+const onSubmit = (e) => {
+  e.preventDefault();
+  const max = maxLimit.value;
+  const roll = rollTheDice.value;
+  result.classList.remove("hidden");
+
+  generateNumber(max);
+  result.querySelector(".choice").innerText = roll;
+  result.querySelector(".machine").innerText = machineAnswer;
+  checkAnswer(parseInt(roll), machineAnswer);
+};
+
+const checkAnswer = (roll, ans) => {
+  if (roll === ans) {
+    result.querySelector(".who-won").innerText = "You won!";
+  } else {
+    result.querySelector(".who-won").innerText = "You lost!";
+  }
+};
+gameForm.addEventListener("submit", onSubmit);
+
+```
+
+- ceiling 사용이 보다 나았을듯.
