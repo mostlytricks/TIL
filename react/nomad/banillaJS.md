@@ -218,3 +218,16 @@ gameForm.addEventListener("submit", onSubmit);
 ```
 
 - ceiling 사용이 보다 나았을듯.
+
+## javascript에서 html 태그 만들어 컨텐츠 넣어주기
+
+``` jsx
+const images = ["0.jpeg", "1.jpeg"]
+const chosenImage = images [Math.floor(Math.random()*2)];
+const bgImage = document.createElement("img");
+bgImage.src = `img/${chosenImage}`;
+document.body.appendChild(bgImage);
+```
+- img tag를 생성해서 .src와 같이 객체 형태로 접근하는 점 유의할 것
+- appendChild를 이론적으로는 알고 있었는데, 실제로 이렇게 쓰나? 하는 지점에서 착안 유의.
+  
