@@ -105,6 +105,7 @@ EntityManager em = emf.createEntityManager();
 
 ```java
 em.persist(member);
+em.remove(member);
 ```
 - 엔터티 매니저 사용 > 회원 엔터티를 영속성 컨텍스트에 저장
 
@@ -112,7 +113,38 @@ em.persist(member);
 1) 비영속
 2) 영속
 3) 준영속(detached) : 저장되었다가 분리된 상태
-4) 삭제 : 삭제된 상태
+4) 삭제 : 삭제된 상태 > DB와 영속성 컨텍스트 모두에서 삭제함 유의할 것
+
+### Entity 조회 
+```java
+Member member = new Member();
+member.setId("member1");
+em.persist(member);
+```
+- 1차 캐시, 회원 엔터티 저장된다. 아직 DB저장 X
+- 조회 시, 1차캐시에서 우선탐색. 만약 없다면 DB에서 조회 > 1차 캐시에저장.
+- Member a = em.find(Member.class, "key a")와 Member b = em.find(Member.class, "key a")는 동일성이 보장된다!(equal => true)
+
+
+### Entity 등록
+엔터티 매니저가 데이터 변경시 반드시 트랜젝션 시작해야함.
+상기 em.persist()의 엔터티 제어/조회는 tx 없이도 가능했음 유의할 것
+
+```java
+EntityManager em = emf.createEntityManager();
+EntityTransaction = transaction = em.getTransaction();
+
+transaction.begin();
+/*
+~~~
+*/
+// 커밋 시점 insert sql을 db에 보냄.
+transaction.commit();
+
+```
+
+
+
 
 
 
