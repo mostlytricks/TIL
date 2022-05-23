@@ -6,7 +6,9 @@
 
 ## TOC
 [1장](#alpha)
+
 [2장]
+
 [3장](#chapter-3)
 
 ## 1장 JPA_소개 <a name = "alpha"/>
@@ -143,8 +145,92 @@ transaction.commit();
 
 ```
 
+### Entity 수정
+SQL 기반의 수정(update)구문 관리 시, 항목 하나씩 늘어날 때마다 update 쿼리 재확인 필요.
+
+- 변경감지(dirty checking) : 엔터티 변경사항 DB에 자동 반영 > em.update()같은 구문이 필요 없다! memberA.setAge(10); 이후 transaction.commit()만 수행되면 적용.
+- 단, 영속 상태의 엔터티만 적용됨
+- JPA의 기본전략은 엔터티의 모든 필드 업데이트 => 전송량이 증가하는 문제.
+- 필드가 많거나 내용 크면, 수정된 데이터만 동적 update Sql생성 필요 => 하이버네이트 확장 기능
+
+```java
+@Entity
+@org.hibernate.annotations.DynamicUpdate /* 동적 업데이트 > 수정된데이터만 사용해서 update sql 생성함*/
+@Table(name = "Member")
+public class Member{...}
+```
+- 자매품 : @org.hibernate.annotations.DynamicInsert
+
+### Entity 삭제
+- 조회 후 em.remove(memberA); => tx.commit() 시 삭제 쿼리도 보냄.
+- 삭제된 엔터티는 재사용하지말자...!
+
+### Flush
+영속성 컨텍스트의 변경 내용 DB에 반영
+
+- em.flush() 직접호출 / tx.commit() / jpql 쿼리 실행 시 자동호출
+
+### Detach(준영속)
+영속성 컨텍스트에서 분리한 것 
+```java
+em.detach(entity) // 특정 엔터티만 전환
+em.clear() // 완전히 초기화
+em.close() // 종료
+```
+
+em.detach(memberA) 사용 시 
+- 1차 캐시부터 지연 Sql 저장소까지 모든 정보 제거 => 직후 tx.commit()하면 적용할 쿼리가 없다!
+
+준영속 상태의 주요 특징
+- 비영속이랑 큰차이 없다
+- 그러나 ID가 있다!
+- 지연로딩 할 수 없다.
+
+### 병합(merge)
+준영속 => 영속
+`Member mergeMember = em.merge(member);`
+
+---
+
+## 4장 Entity 맵핑 <a name = "chapter-4"/>
+
+### 개요
+- 객체와 테이블 맵핑 : @Entity, @Table
+- 기본 키 맵핑 : @Id
+- 필드와 컬럼 : @Column
+- 연관관계 : @ManyToOne, @JoinColumn
+
+### @Entity(name ="") 
+- JPA에서 사용할 엔터티 이름, 통상 클래스 이름 사용.
+- default = class Name
+- 기본 생성자 필수 (public Member() / protected Member() ) 
+  >> 별도의 생성자 만들 경우, 반드시 기본 생성자 수기 추가할 것
+- final, enum, interfae, inner class에는 사용 불가
+- 저장 필드에 final쓰지말아라
 
 
+### @Table(name= "{table_name}", catalog = "" , schema = "", uniqueConstraints = "")
 
+### 기타 맵핑
+```java
+@Enumerated(EnumType.STRING)
+private RoleType roleType;
+
+@Temporal(TemporalType.TIMESTAMP)
+private Date createdDate;
+
+@Lob
+private String description;
+
+// Getter & Setter
+
+public enum RoleType{
+  ADMIN, USER
+}
+```
+
+- roleType => enumtype 사용 시 별도 어노테이션 유의
+- temporal => 날짜 타입 맵핑 시.
+- description => 길이 제한 없는 필드는 varchar 대신 clob이 적합. @Lob이용해서 clob/blob타입 저장 지원
 
 
