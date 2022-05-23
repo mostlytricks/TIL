@@ -6,7 +6,8 @@
 
 ## TOC
 [1장](#alpha)
-
+[2장]
+[3장](#chapter-3)
 
 ## 1장 JPA_소개 <a name = "alpha"/>
 
@@ -62,4 +63,56 @@ team.getMember()은 참조가 없을 경우 불가능.
 ### 기타
 
 > 통계쿼리 등 복잡한 sql은 오히려 native sql or mybatis등을 혼용하는게 좋은 선택지일 수 있다.
-> 
+
+
+
+---
+
+## 3장 JPA_소개 <a name = "chapter-3"/>
+
+### Entity Manager
+META-INF/persistence.xml 정보를 참조하여 EntityManagerFactory 생성함
+```xml
+<persistence-unit name = "jpabook">
+  <properties>
+    <property name = "javax.persistence.jdbc.driver" value = "org.h2.Driver"/>
+    <property name = "javax.persistence.jdbc.user" value = "sa"/>
+    <property name = "javax.persistence.jdbc.password" value = ""/>
+    <property name = "javax.persistence.jdbc.url" value ="jdbc:h2:tcp://localhost/~/test"/>
+  </properties>
+<persistence-unit name = "jpabook">
+  
+```
+- 기타 sql 표기 여부 등 옵션을 여기서 작성한다.
+- hibernate.cfg.xml과 작성 방식이 사소하게 다름 유의 (value 전달 등)
+- 내용은 동등해보인다. (~ session-factory)
+
+```java
+EntityManagerFactory mef = Persistence.createEntityManagerFactory("jpabook");
+EntityManager em = emf.createEntityManager();
+```
+
+### EntityManagerFactory
+- 엔터티 매니저 팩토리는 생성비용이 크며, 애플리케이션 전체에서 공유 / 통상 한 개만 만든다 (DB 하나면 팩토리 매니저 하나)
+- thread safe
+
+### EntityManager
+- 여러 스레드가 동시 접근시, 동시성 문제 발생
+
+### 영속성 컨텍스트 (Persistence Context) 
+- 엔터티 영구 저장 환경
+- 저장한다고 생각하자.
+
+```java
+em.persist(member);
+```
+- 엔터티 매니저 사용 > 회원 엔터티를 영속성 컨텍스트에 저장
+
+### Entity life-cycle
+1) 비영속
+2) 영속
+3) 준영속(detached) : 저장되었다가 분리된 상태
+4) 삭제 : 삭제된 상태
+
+
+
