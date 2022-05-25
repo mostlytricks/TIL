@@ -234,3 +234,77 @@ public enum RoleType{
 - description => 길이 제한 없는 필드는 varchar 대신 clob이 적합. @Lob이용해서 clob/blob타입 저장 지원
 
 
+! HBM2DDL > create, create-drop, update같은 DLL 수정 옵션은 운영환경에서 절대로 사용하지말것.
+영속성 컨텍스트에서 관리하도록 놔두고, 개발 단계에서만 생성해서 "어떤 쿼리를 실행하는지", 테이블을 즉각 생성함에 따라 맵핑 작성에 익숙해지도록 활용해라.
+
+! 하기 옵션으로 camelCase의 java, snake_case의 db를 자동 맵핑토록 지원 가능하다. 이후 table =()를 명시적으로 지정안해도 번역 적용 .
+
+```xml
+<property name ="hibernate.ejb.naming_strategy"
+          value = "org.hibernate.cfg.ImproveNamingStrategy" />
+ 
+```
+
+### 기본 키의 생성 전략
+
+@Id 적용 가능한 타입 목록
+> - 자바 기본형
+> - 자바 Wrapper형
+> - String
+> - java.util.Date
+> - java.sql.date
+> - java.math.BigDecimal
+> - java.math.BigInteger
+
+* 직접 할당 `board.setId("id1") 등` 시 em.persist()로 저장하기 전에 수행해야한다.
+** 상기 @Id 적용은 @GeneratedValue 추가해서 원하는 키생성 전략을 이용한다
+*** 키 생성 전략을 사용하려면(@Id) 반드시 persistence.xml에 hibernate.id.new_generator_mapping = true속성 추가한다. 호환성으로 인해 default는 false
+
+```java
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long Id;
+// 생성 전략을 DB에 위임, auto_increment등 내부로직 사용해서 Id생성
+
+...
+@GeneratedValue (strategy = GenerationType.SEQUENCE,
+                 generator = "BOARD_SEQ_GENERATOR")
+// 별도로 등록한 board_seq_generator를 사용해 키 생성하는 sequence옵션.
+// 오라클, postgreSQL, DB2, H2 (sequence 지원 DB)
+
+```
+
+### 주요 필드~ 컬럼 맵핑 레퍼런스 
+- 145p, 필요시 참고
+
+> @Column :컬럼 맵핑
+> @Enumerated : 자바의 enum type 맵핑
+> @Temporal : 날짜 타입 맵핑
+> @Lob : Blob, Clob,
+> @Transient : 특정 필드 DB 맵핑 x
+> @Access : JPA가 엔터티 접근하는 방식 지정
+
+```java
+@Entity
+public class Member{
+  @Id 
+  private String id;
+  
+  @Transient
+  private String firstName;
+  
+  @Transient
+  private String lastName
+  
+  @Access(AccessType.PROPERTY)
+  public String getFullName() {
+    return firstName + lastName;
+  }
+}
+// 이경우 firstName, lastName은 DB에 저장 안됨
+// Fullname이 accesstype.property로 명기되며 이 getter를 참조하여 DB에 저장
+// Fullname을 DB에서 조회 가능 => 필드를 조합한 별도의 property (주민번호 뒷자리 + 인코딩 등)를 db에 담고 싶을때 참고할 것
+
+```
+
+  
