@@ -307,4 +307,41 @@ public class Member{
 
 ```
 
+---
+
+## 5장 연관관계 매핑 기초 <a name = "chapter-5"/>
   
+### 주요 개념
+- 방향 : 단방향 /양방향
+- 다중성 : N:1, 1:N, 1:1, N:M
+- 주인 : 양방향 연관관계 > 누가 소유할 것인가 정의해야함
+
+> 참조를 통한 연관관계는 항상 단방향임을 유의할 것 : 양방향 연관관계를 구현하려면, 각각 서로를 참조해야함.
+
+
+```java
+@ManyToOne
+@JoinColumn(name = "TEAM_ID")
+private Team team;
+```
+- 다대일 조인의 예시. annotation을 통해 특정 칼럼이 어떻게 연관되는지 명시해고, 해당 객체를 그대로 불러온다.
+- JoinColumn : 외래키 맵핑시 사용
+- ManyToOne : 다대일 관계 명시 유의할것.
+
+### 사용 예제
+
+```
+public void testSave(){
+  Team team1 = new Team("team1", "팀 1");
+  em.persist(team1);
+  
+  Member member1 = new Member("member1", "회원1");
+  member1.setTeam(team1); 
+  em.persist(member1);
+  
+  Member member2 = new Member("member2", "회원2");
+  member2.setTeam(team1);
+  emp.persist(member2);
+}
+```
+- 영속 상태의 엔터티만 저장가능함 유의할 것.
