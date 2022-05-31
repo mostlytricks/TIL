@@ -374,3 +374,15 @@ public void setTeam(Team team) {
 => 양방향은 복잡하고 실수할 수 있다. 가능한 단방향으로 구성하고, 반대방향으로 객체 그래프 탐색 기능이 필요할 때 양방향 사용토록 코드 추가할 것.
 
 
+## 6장 다양한 연관관계 맵핑 <a name = "chapter-6"/>
+
+### 다중성의 종류
+
+- 다대일(@ManyToOne)
+- 일대다(@OneToMany)
+- 일대일(@OneToOne)
+- 다대다(@ManyToMany)
+
+
+
+
