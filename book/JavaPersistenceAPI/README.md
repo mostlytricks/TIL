@@ -384,5 +384,84 @@ public void setTeam(Team team) {
 - 다대다(@ManyToMany)
 
 
+### 다대일 단방향[N:1]
+회원.팀은 있지만 팀.회원은 없는경우. 회원-> 팀으로 단방향 참조/연관관계를 갖고, 해당관계의 주인은 회원이다.
+```java
+@ManyToOne
+@JoinColumn(name = "TEAM_ID")
+private Team team;
+```
+### 다대일 양방향
+양방향은 외래 키가 있는 쪽이 연관관계의 주인
+- JPA는 외래 키 관리 시, 연관관계의 주인만 사용.
+- Team.members는 조회 위한 JPQL 이나 객체 그래프 탐색에만 사용. 
 
+### 일대다 단방향
+Java collection > Collection, List, Set, Map 중 사용 유의할 것
 
+- 맵핑한 객체가 관리하는 외래키가 다른 테이블에 존재 >> update sql을 추가 실행해야 하는 제약
+```java
+public void testSave() {
+  Member member1 = new Member("member1");
+  Member member2 = new Member("member2");
+  
+  Team team1 = new Team("team1");
+  team1.getMembers().add(member);
+  team1.getMembers().add(member); // 여기까진 동일
+  
+  em.persist(member1); 
+  em.persist(member2);
+  em.persist(team1); // 이때 insert team1, update member1, update member2 수행
+  transaction.commit();
+}
+```
+
+수행되는 쿼리
+
+```SQL
+insert into Member(MEMBER_ID, username) values (null,?)
+insert into Member(MEMBER_ID, username) values (null,?)
+insert into Team (TEAM_ID, name) values (null,?)
+update Member set TEAM_ID=? where MEMBER_ID=?
+update Member set =TEAM_ID =? where MEMBER_ID=?
+```
+- member entity > team entity를 모르기 때문에, member entity 저장 시 member.team_id 가 저장되지 않는다!
+- 그러나 이느 ㄴteam으 ㄹ저장할때 참조 확인해서 update를 수행
+
+따라서 다른 테이블의 외래키 관리하는 과정으로 인해, 개발자가 의도적으로 persist하는 대상을 신경써야한다.
+=> 일대다 단방향 보다는, 다대일 양방향 맵핑을 사용할 것 
+
+### 일대일
+일대일 주 테이블에 외래키 , 양방향 예제코드 
+
+```java
+@Entity
+public class Member{
+  @Id
+  @GeneratedValue
+  @Column(name = "MEMBER_ID")
+  private Long id;
+  
+  private String username ; 
+  
+  @OneToOne
+  @JoinColumn(name = "LOCKER_ID")
+  private Locker locker;
+}
+
+@Entity
+public class Locker {
+  @Id 
+  @GeneratedValue
+  @Column(name = "LOCKER_ID")
+  private Long id;
+  
+  private String name;
+  
+  @OneToOne(mappedBy= "locker")
+  private Member member;
+}
+```
+
+- 양방향 > 연관관계 주인 필요 > Member가 외래 키 가지고 있음 > Member.locker가 연관관계의 주인.
+- Locker.member은 따라가는 입장 > mappedBy 선언.
