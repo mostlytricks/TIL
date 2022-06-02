@@ -465,3 +465,16 @@ public class Locker {
 
 - 양방향 > 연관관계 주인 필요 > Member가 외래 키 가지고 있음 > Member.locker가 연관관계의 주인.
 - Locker.member은 따라가는 입장 > mappedBy 선언.
+
+### 다대다
+관계형 데이터베이스는 정규화된 테이블 두개로 다대다 관계를 표현할 수 없다 (!)
+Member > member_id, username
+Product > product_id, name
+상기 두개로는 연관관계 표현 어려움, bucket이 필요.
+Member_Prodcut > Member_id(pk,fk), Product_id(pk,fk)
+복합키 기반으로 동시 조회 가능토록 테이블 있어야 다대다 > 다대일/일대다로 풀어낼 수 있다.
+
+그러나 객체는 객체 두개만으로 다대다 관계를 만들 수 있다 (!)
+- 컬렉션을 사용 + @ManyToMany
+
+
