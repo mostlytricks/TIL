@@ -477,4 +477,13 @@ Member_Prodcut > Member_id(pk,fk), Product_id(pk,fk)
 그러나 객체는 객체 두개만으로 다대다 관계를 만들 수 있다 (!)
 - 컬렉션을 사용 + @ManyToMany
 
+### 복합 기본 키
+Member_id, product_id로 이루어진 복합 기본키를 사용하는 예제
+별도의 식별자 클래스 만들고, @IdClass사용해서 지정해줘야 한다.
+이외에,
+- Serializable 구현
+- eqauls, hashcode 구현
+- 기본 생성자
+- public 
+- @IdClass외에 @EmbeddedId 사용 가능
 
