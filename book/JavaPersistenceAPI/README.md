@@ -530,6 +530,83 @@ public class Book extends Item{
 - @DiscriminatorColumn 반드시 사용해야함. 구분컬럼 꼭 필요.
   - 따로 사용치 않을 경우,Entity 이름을 등록.
   
-  
+### @MappedSuperclass
 
+- 부모 클래스는 테이블과 맵핑 하지 않고, 부모클래스를 상속 받는 자식클래스 에게 맵핑 정보만 제공하고 싶은 경우.
+- 추상 클래스와 비슷한 성질.
+- 필요시 @AttributeOverrides / @AssociationOverride
+  
+  
+### 식별관계/비식별관계
+- 식별관계 : 부모 테이블의 기본 키 내려받아서 자식 테이블의 기본 키 / 외래키로 사용하는 관계
+  ```
+  parent : parent_id(pk), name
+  child : parent_id(pk,fk), child_id(pk), name
+  ```
+- 비식별 관계 : 부모 테이블의 기본 키 받아서 자식 테이블의 외래 키로만 사용
+  ```
+  parent : parent_id(pk), name
+  child : child_id(pk), parent_id(fk), name)
+  ```
+
+### 복합키
+- @IdClass : 관계형 데이터베이스에 가까운
+```java
+@Entity
+@IdClass(ParentId.class)  // 여기 유의
+public class Parent{
+  @Id
+  @Column(name = "PARENT_ID1")
+  private String id1;
+  
+  @Id
+  @Column(name = "PARENT_ID2")
+  private String id2;
+  
+  (...)
+}
+  
+public class ParentId implements Serializable {
+  private String id;
+  private String id2;
+  
+  public ParentId() {
+  }
+  public ParentId(String id1, String id2){
+    this.id1 = id1;
+    this.id2 = id2;
+  }
+  
+  @Override
+  public boolean equals (Object o) {...}
+  
+  @Override
+  public int hashCode() {...}
+}
+  
+```
+  - 조건
+    - 식별자 클래스의 속성명, 엔터티에서 사용하는 식별자의 속성명이 같아야함 (private String id1)
+    - Serializable interface를 구현해야 한다
+    - eqauls, hashCode 를 구현해야 한다.
+    - 기본 생성자 필수
+    - 식별자는 public
+  
+  - 사용 방식
+  
+  ```java
+  Parent parent = new Parent();
+  parent.setId1("myId1");
+  parent.setId2("myId2");
+  parent.setName("parentName");
+  em.persist(parent); // 이 시점 id1, id2를 사용해서 영속성 컨텍스트로 사용한다.
+  ```
+  
+  ```java
+  ParentId parentId = new ParentId("myId1", "myId2");
+  Parent parent = em.find(Parent.class, parentId);
+  // ParentId를 사용해서 조회한다.
+  ```
+  
+- @EmbeddedId : 객체 지향에 보다 가까운 구조   
   
