@@ -487,3 +487,49 @@ Member_id, product_id로 이루어진 복합 기본키를 사용하는 예제
 - public 
 - @IdClass외에 @EmbeddedId 사용 가능
 
+
+
+## 7장 고급 맵핑 <a name = "chapter-7">
+  
+### 조인전략
+  
+```java
+@Entity 
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name= "DTYPE")
+public abstract class item {
+ (...)
+}
+  
+ 
+@Entity
+@DiscriminatorValue("M") 
+public class Movie extends Item{
+ (...)
+}  
+```
+  - @inhertance(strategy = InheritanceType.JOINED) : 상속 맵핑은 부모 클래스에 inhertance 사용 필요. 
+  - @DiscriminatorColumn(name = "DTYPE") : 부모클래스에 구분 컬럼 지정. 저장된 자식 테이블 구분 기준. dtype은 default.
+  - @DiscriminatorValue("M") : 엔터티 저장 시 구분 컬럼에 입력할 값 지정. 이 경우 dtype에 M저장
+  
+```java
+@Entity
+@DiscriminatorValue("B")
+@PrimaryKeyJoinColumn(name = "Book_ID")
+public class Book extends Item{
+  (...)
+}
+```
+- 자식 테이블의 기본 키 컬럼명을 변경하는 경우. 
+  - 조회할 때 조인을 많이 사용하게 되며 성능 관점 유의해야
+  - 조회 쿼리 복잡해짐 (동일 값을 담는 pk 증대)
+  
+### 단일 테이블 전략
+- null허용한 값을 이용
+`@Inheritance(strategy = InheritanceType.SINGLE_TABLE)`
+- @DiscriminatorColumn 반드시 사용해야함. 구분컬럼 꼭 필요.
+  - 따로 사용치 않을 경우,Entity 이름을 등록.
+  
+  
+
+  
