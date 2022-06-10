@@ -610,3 +610,34 @@ public class ParentId implements Serializable {
   
 - @EmbeddedId : 객체 지향에 보다 가까운 구조   
   
+```java
+@Embeddable
+public class ParentId implements Serializable {
+  @Column(name = "PARENT_ID1")
+  private String id1;
+  @Column(name = "PARENT_ID2")
+  private String id2;
+  
+  // equals, hashCode 구현 필요
+}
+```
+@Embedded Id 저굥ㅇ한 식별자 구현 시, 하기 유의해야한다.
+- @Embeddable annotation
+- Serializable 인터페이스 구현
+- eqauls, hashCode 구현
+- 기본 생성자
+- 식별자 클래스 => public
+
+parentId를 직접 생성해서 저장한다. 좀 더 객체 지향적
+  
+```java
+// 저장 예제
+Parent parent = new Parent();
+ParentId parentId = new parentId("myId1", "myId2");
+parent.setId(parentId);
+parent.setName("parentName");
+em.persist(parent);
+```
+  
+eqauls, hashcode 필수 구현에 유의하자.
+  
