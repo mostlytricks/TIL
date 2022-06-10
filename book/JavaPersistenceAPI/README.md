@@ -641,3 +641,16 @@ em.persist(parent);
   
 eqauls, hashcode 필수 구현에 유의하자.
   
+### 소결론 (식별/비식별 관계)
+- 가능한 비식별관계 사용 (foreign key는 pk로 사용하지 않는 방향)
+- 기본 키는 Long type의 대리키 사용.
+=> 비즈니스가 변경되어도 유연한 대처 가능!
+=> JPA 기준 @GeneratedValue를 이용한 간편한 대리 키 작성!  
+=> Long type은 920경 정도로, Integer은 20억 정도임을 감안하면 훨씬 안정적으로 구성 가능!
+  
+  
+### 조인 테이블(!)
+- 두 테이블 간의 연관관계를 관리하는 테이블 구성 (member_locker로 member, locker를 연결)
+- 단점 : member와 locker 조인하려고보니까 member_locker도 조인해야한다.
+=> 기본은 조인 컬럼, 필요시 조인 테이블 이용할 것.
+=> @JoinTable을 이용해 맵핑한다. 
