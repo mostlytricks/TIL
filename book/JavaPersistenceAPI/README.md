@@ -654,3 +654,7 @@ eqauls, hashcode 필수 구현에 유의하자.
 - 단점 : member와 locker 조인하려고보니까 member_locker도 조인해야한다.
 => 기본은 조인 컬럼, 필요시 조인 테이블 이용할 것.
 => @JoinTable을 이용해 맵핑한다. 
+  
+### 1 엔터티 N 테이블
+- 가능하다.
+- @SecondaryTable()
