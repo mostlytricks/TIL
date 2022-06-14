@@ -1,0 +1,8 @@
+.target::before{ /*통상 target은 배경 그리드 또는 body 대상, before 유의할 것*/
+  content:'';
+  position:fixed;
+  height:200px;
+  width:200px;
+  background(rgb(0,255,255);
+  filter : blur(14px); /* 상자 배치 후 블러처리, 배경에 광원 느낌.*/
+}
