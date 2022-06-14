@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); /* 구글 웹폰트*/
+
+*{ /*모든 컴포넌트에 대한 초기화 과정. 불필요한 마진, 패딩 삭제, */
+  margin:0;
+  padding :0;
+  box-sizing :border-box; /*박스 크기 측정시 테두리 반영여부, 그리드 기획시 유리함.*/
+  text-decoration:none; 
+  color:white;
+  z-index :1; /*z-index를 통한 배치 관리 목적 초기화*/
+}
+
+body{
+  min-height : 100vh; /*배경 높이는 최소 100viewport-height로*/
+  animation: move 1s linear infinite forwards;
+}
+
+html{
+ scroll-behavior : smooth; 
+}
+::-webkit-scrollbar{
+  width:0;
+}
+
+:root{ /*공용변수 지정*/
+  --color-i-like:rgba(72,177,250,0.445);
+  --tab-width:90%;
+  --phone-width:100%;
+}
