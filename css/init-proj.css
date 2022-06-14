@@ -24,5 +24,24 @@ html{
 :root{ /*공용변수 지정*/
   --color-i-like:rgba(72,177,250,0.445);
   --tab-width:90%;
+  --pc-width:75%;
   --phone-width:100%;
+}
+
+
+
+/* 반응형 컨테이너 구성*/
+.container{
+  width:var(--pc-width);
+  padding:10px 40px;
+  margin: 5px auto;
+  display:flex;
+  justify-contnet:center;
+  align-items:center;
+}
+
+@media(max-width:500px){
+  .container{
+    width:var(--phone-width);
+  }
 }
