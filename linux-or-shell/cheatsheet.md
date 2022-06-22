@@ -47,4 +47,24 @@ grep "<string>" <filename1> >> <filename2> : filename2에 탐색한 내용 저�
 ---
 ### 호우
 - tail : 
-- 
+
+
+
+# netstat
+---
+
+
+### 기본
+- netstat : 활성된 TCP connection, port, 옵션에 따른 IP routing table등 추가정보 제공
+- 기타 : windows server, linux 모두 사용
+
+```shell
+-a : display all tcp connection & tcp,udp ports, which the computer is listenin
+-b :
+-e : ethernet statistics, -s와 조합 가능
+-s : display statistics by protocol > tcp, udp, icmp, ip protocol 등. -p와 조합가능
+-p : 
+-o : TCP conn을 PID와 정보 함께 제공
+-r : routing tabl
+```
+
