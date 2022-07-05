@@ -68,3 +68,18 @@ public Order cancelOrder(int orderId){
 
 
 ### 도메인 모델을 이용한 controller - service - dto 예시
+```java
+@RequiredArgsConstructor
+@RestController
+public class PostsApiController {
+  
+  private final PostsService postsService;
+  
+  @PostMapping("/api/v1/posts")
+  public Long save(@RequestBody PostsSaveRequestDto requestDto){
+    return postsService.save(requestDto);
+  }
+}
+```
+- 의존성 주입 방법 유의. 생성자 주입을통해사용한다. 
+- api 요청 중 post요청에 대해, save를 실행하는것에 끝나지 않고 return 하고 있다. 응답 코드가 필요하다.
