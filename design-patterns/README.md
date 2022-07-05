@@ -1,5 +1,6 @@
 # Design Pattern에 대한 기록
 - 설계 의도 : 디자인 패턴에 대한 기록/번역/학습기록
+- 참고 1 : [yeah](https://yeah.tistory.com/13?category=949516)
 
 ### Factory Pattern
 
