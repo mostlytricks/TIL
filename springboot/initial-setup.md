@@ -87,3 +87,11 @@ public Class MongoConfig{
 - application(spring application구문)하위의 패키지에 controller위치여부
 - controller 별로 @Controller annotation있는지 확인 아니면 bean등록 안되기도.올바
 
+<br/>
+<br/>
+
+### intellij에서 정적 자원 자동할당
+- spring-boot-devtools를 써라. [jojoldu](https://jojoldu.tistory.com/48)
+- 보다 최근 설정 기록 [lhb0517](https://lhb0517.tistory.com/entry/SpringIntelliJ-SpringBoot-HotSwap-with-IntelliJ)
+- 2022.01 사용 기록(intellij 2021.03) [shanepark](https://shanepark.tistory.com/215)
+- intellij >settings >advanced setting > compiler > allow auto-make check로 설정 변경됨.
