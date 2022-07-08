@@ -658,3 +658,80 @@ eqauls, hashcode 필수 구현에 유의하자.
 ### 1 엔터티 N 테이블
 - 가능하다.
 - @SecondaryTable()
+
+
+
+## 8장 프록시와 연관관계 정리 <a name = "chapter-8">
+### JPA 기본 페치 전략
+- fetch 기본 설정값
+  - @ManyToOne, @OneToOne : 즉시 로딩 (FetchType.EAGER)
+  - @OneToMany, @ManyToMany : 지연 로딩 (FetchType.LAZY)
+  
+  
+
+## 9장 값 타입(?) Value Object <a name = "chapter-9">
+### 기본값
+```java
+@Entity
+public class Member{
+  @Id @GeneratedValue
+  private Long id;
+  private String name;
+  private int age;
+  (...)
+}
+```
+
+### 임베디드 타입 (복합 값 타입)
+```
+@Entity
+public class Member{
+  @Id @GeneratedValue
+  private Long id;
+  private String name;
+  
+  @Embedded Period workPeriod; 
+  @Embedded Address homeAddress
+}
+
+@Embeddable
+public class Period{
+  @Temporal(TemporalType.DATE) java.util.Date startDate;
+  @Temporal(TemporalType.DATE) java.util.Date endDate;
+  
+  public boolean isWork(Date date){
+    // 값 타입을 위한 메소드도 정의 가능. Period.isWork()
+  }
+}
+
+@Embeddable
+public class Address{
+  @column(name="city")
+  private String city;
+  private String street;
+  priavte String zipcode;
+}
+```
+
+
+### 불변객체
+```java
+@Embeddable
+public class Address{
+  
+  private String city;
+  
+  protected Address(){} //기본 생성자 필수 유의
+  
+  public Address(String city) {this.city =city}
+  
+  public String getCity(){
+    return city;
+  }
+  // setter는 만들지 않는다.
+}
+```
+- 접근자는 만들고, 수정자는 만들지 않고, 값 배정은 생성자로만 진행 -> 해당 객체에 접근해도 불필요한 수정하지 않도록 구성
+- Address는 이제 불변객체로 사용되고, 공유해도 부작용 없음.
+- 불변객체의 예시 : Integer, String. 값 수정이 아닌 새 객체를 만들어서 사용해야함.
+
