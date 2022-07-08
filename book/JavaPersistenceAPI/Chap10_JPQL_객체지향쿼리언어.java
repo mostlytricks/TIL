@@ -52,4 +52,8 @@ List<Member> resultList =
 
 
 
-
+/*
+  Mybatis 등과 혼용시 유의사항
+  - 영속성 컨텍스틑 적절한 시점에 강제 플러쉬 해야한다.
+  - JPA를 위회하는 SQL을 JPA가 인식하지 못하기 때문.
+*/
