@@ -11,10 +11,16 @@
 ##### int[] -> List<Integer>
 ```java
 // java 17 확인 
-
 List<Integer> temp = Arrays.stream(nums).boxed().toList();
 
+// java 8 확인
+Integer[] ints = new Integer[] {1,2,3,4,5};
+List<Integer> list = Arrays.asList(ints);    
 ```
+- primitives의 List<int> 같은게 지원이 안되어서, List전환이 이상했었다. `int holyCow[] ={1,2,3,4,5}` 같은건 Arrays.asList 안먹음.
+- String[] strs={"1","2","3"}은 잘 바뀐다.
+- Integer[] ints = new Integer[]{1,2,3,4,5} 도 잘바뀐다.  
+    
 
 ##### rotate
 ```java
