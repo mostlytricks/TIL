@@ -57,3 +57,42 @@ List<Member> resultList =
   - 영속성 컨텍스틑 적절한 시점에 강제 플러쉬 해야한다.
   - JPA를 위회하는 SQL을 JPA가 인식하지 못하기 때문.
 */
+
+
+/*
+  페이징 처리용 API
+*/
+// 예제 10.18 페이징 사용
+TypedQuery<Member> query= em.createQuery("SELECT m FROM Member m ORDER BY m.username DESC",Member.class);
+
+query.setFirstResult(10); 
+query.setMaxResult(20);
+query.getResultList(); // 시작 10, 20개 조회에 따른 11~30번 데이터 조회
+
+// 예제 10.22 오라클의 페이징 쿼리 예시
+String queryStatement= 
+"
+  SELECT *
+  FROM
+    ( SELECT ROW_.*, ROWNUM ROWNUM_
+    FROM
+      (SELECT
+        M.ID AS ID,
+        M.AGE AS AGE, 
+        M.TEAM_ID AS TEAM_ID,
+        M.NAME AS NAME
+       FROM MEMBER M
+       ORDER BY M.NAME
+      ) ROW_
+      WHERE ROWNUM<=?
+     )
+  WHERE ROWNUM_ > ?
+  ";
+
+
+/*
+  JPQL JOIN
+*/
+String query = "SELECT m FROM Member m INNER JOIN m.team t WHERE t.name = :teamName";
+// team.id와 같은 조인 조건이 아닌, 객체의 연관 필드 사용 유의할 것. m.team이 핵심이다.
+
