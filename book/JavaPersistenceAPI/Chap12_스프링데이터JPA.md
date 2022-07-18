@@ -47,3 +47,8 @@ public interface MemberRepository extends Repository<Member, Long>{
   List<Member> findByEmailAndName(String email, String name);
 }
 ```
+
+#### 반환 타입
+- 여러 건이면 Collection interface -> List<T>등 사용 가능
+- 단 건일 경우 반환타입 지정
+  
