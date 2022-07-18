@@ -49,10 +49,52 @@ public class MemberRepository{
     return em.createQuery("select m from Member m", Member.class).getResultList();
   }
   
-  public List<Member> findByName
+  public List<Member> findByName(String name){
+    return em.createQuery("select m from Member m where m.name = :name", Member.class).setParameter("name", name).getResultList();
+  }
 }
 
 ```
 - 엔터티 저장과 관리 기능에 유의할 것. spring-jpa에서 interface 생성시 사용가능 메서드들이 확인됨
 - @PersistenceContext 유의. 스프링 / J2EE 컨테이너 사용시 컨테이너가 직접 EM관리함. 컨테이너에서 제공하는 EM사용할 것
-- 
+- EntityManager Factory는 사용할일이 거의 없지만(상기 의존성 주입), 필요시 @PersistenceUnit을 사용한다.
+
+```java
+// 회원 서비스
+@Service
+@Transactional
+public class MemberService{
+  
+  @Autowired
+  MemberRepository memberRepository;
+  
+  /* 회원 가입 */
+  public Long join(Member member){
+    validateDuplicateMember(member);
+    memberRepository.save(member);
+    return member.getId();
+  }
+  
+  private void validateDuplicateMember(Member member){
+    List<Member> findMembers = memberRepository.findByName(member.getName());
+    if(!findMembers.isEmpty()){
+      throw new IllegalStateException("이미존재하는 회원 입니다.");
+    }
+  }
+  
+  /* 전체 회원 조회*/
+  public List<Member> findMembers(){
+    return memberRepository.findAll(); 
+  }
+  
+  public Member findOne(Long memberId){
+    return memberRepository.findOne(memberId);  
+  }
+}
+```
+- join이라는 동작을 수행하기위해, repository에 어떻게 순차적인 연결을 하는지 유의할 것.
+- join 내부도 validateDuplicate 이라는 동작은 별도의 메서드로 분리해냈다. 단일책임원칙 유의
+- @Service -> spring bean으로 등록
+- @Transactional -> spring framework가 transaction 적용. 
+- @Autowired -> 스프링 컨테이너가 스프링 빈 주입
+  - lombok의 @RequiredArgConstructor, private final 이용해서 생성자를 통한 의존성 주입 기법 유의할 것. @Autowired는 사용 지양에 대한 코멘트들이 확인되고 있다.
