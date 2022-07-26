@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;1,400&display=swap');
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    user-select : none;
+    -webkit-user-select:none;
+}
+
+.port3-body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background-color : rgb(7,21,27);
+    overflow:hidden;
+}
+
+
+::-webkit-scrollbar{
+    width:1px;
+    height:1px;
+}
+
+.container {
+    position:relative;
+    height: 100vh;
+    width: 80vw;
+    display :flex;
+    justify-content: center;
+    align-items:center;
+}
+
+
+.container .nav-bar{
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding : 10px 0 ;
+}
+
+.container .nav-bar h1{
+    position : absolute;
+    color : white;
+    font-family : sans-serif;
+    font-size :25px;
+    left: 0;
+    font-weight : 100;
+    letter-spacing : 1px;
+    cursor : pointer;
+}
+
+
+.container .nav-bar .control-bar{
+    position: absolute;
+    right: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu{
+    fill : white;
+    height :30px;
+    width:30px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.menu.account{
+    height:18px;
+}
+
+
+.logo-container{
+    position:absolute;
+    height:550px;
+    width:550px;
+    border-radius:50%;
+    background-color: rgb(4,24,31);
+    left:0;
+    box-shadow : 10px 10px 35px rgba(0,0,0,0.212), inset 10px 10px 20px rgba(0,0,0,0.329);
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+    animation: animate 5s 1s linear infinite;
+}
+
+@keyframes animate {
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
+.logo-container .logo{
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    display:flex;
+    justify-content: center;
+    align-items : center;
+    animation : animate1 2s 1s linear infinite;
+}
+
+.logo-container .semi-logo{
+    height : 125px;
+    width : 125px;
+    border-radius : 50%;
+    background-color : rgb(114,134,134);
+    margin : 5px;
+
+}
+
+
+.logo-container .logo .mini-logo{
+    height: 50%;
+    width: 50%;
+    border-radius : 50%;
+    background-color: rgb(105,143,143);
+
+}
+
+@keyframes animate1{
+    to{
+        transform:rotate(-360deg);
+    }
+}
+
+
+.logo-container .logo .semi-mini-logo{
+    height: 30%;
+    width: 30%;
+    border-radius : 50%;
+    background-color: rgb(9,34,46);
+    margin: 20px;
+}
+
+.container .text-container{
+    position : absolute;
+    left: 52%;
+    height: 80%;
+}
+
+
+.text-cotainer h1{
+    color:white;
+    text-transform: uppercase;
+    font-size : 80px;
+    font-weight : 900;
+    margin-top:60px;
+    transform : translateY(100px);
+    opacity : 0;
+    animation :unveal 1s ease forwards;
+
+}
+
+@keyframes unveal{
+    to {
+        transform : translateY(0);
+        opacity : 1;
+    }
+}
+
+
+.text-container h2{
+    color:white;
+    font-size: 70px;
+    text-transform : capitalize;
+    font-weight : 300;
+    transform : translateY(-100px);
+    opacity :0;
+    animation : unveal 1s 100ms ease forwards;
+}
+
+.text-container h3{
+}
+
+
+
