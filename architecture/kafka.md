@@ -1,4 +1,5 @@
 # Kafka 관련 기록
+- 확인할것 -> https://github.com/AndersonChoi/
 
 ## 주요 어휘
 
