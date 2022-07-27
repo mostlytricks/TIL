@@ -147,7 +147,7 @@
 }
 
 
-.text-cotainer h1{
+.text-container h1{
     color:white;
     text-transform: uppercase;
     font-size : 80px;
@@ -177,8 +177,81 @@
     animation : unveal 1s 100ms ease forwards;
 }
 
+
 .text-container h3{
+    color : rgba(255,255,255, 0.808);
+    max-width : 90%;
+    margin-top : 50px;
+    transform:translateY(-50px);
+    opacity :0;
+    animation : showbtn 1s ease forwards;
 }
 
+
+.text-container .discover{
+    position:absolute;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height:60px;
+    width:150px;
+    border:none;
+    border-radius: 50px;
+    margin-top:50px;
+    border:2px solid white;
+    text-transform:capitalize;
+    font-size:18px;
+    letter-spacing: 1px;
+    cursor:pointer;
+    overflow:hidden;
+    transition : 0.3s ease;
+    transform : translateY(-50px);
+    opacity : 0;
+    animation: showbtn 1s ease forwards;
+    -webkit-box-reflect: below 20px linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.62));/* 바닥에 비쳐보이기.*/
+    /* z-index: 1; */
+}
+
+@keyframes showbtn{
+    to {
+        transform :translateY(0);
+        opacity:1;
+    }
+}
+
+.text-container .discover:active{
+    transform : scale(0.97);
+}
+
+.text-container .discover span{
+    position : relative;
+}
+
+.text-container .discover:hover{
+    background-color : transparent;
+}
+
+.text-container .discover:hover span{
+    color:white;
+}
+
+.curtain{
+    position:absolute;
+    height:100%;
+    width: 100%;
+    background-color: rgb(51,111,139);
+    transform : translateY(100%);
+
+}
+
+.curtain.active{
+    animation: blind 800ms ease forwards;
+    animation-delay: calc(var(--i)*180ms);
+}
+
+.curtain.c1{
+    opacity:0.3;
+    background-color: rgb(red,green,blue);
+}
 
 
