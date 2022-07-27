@@ -27,6 +27,14 @@ grep "<string>" * : 현재 위치의 모든파일에서 해당 문자열 탐색 
 
 grep "<string>" <filename1> | grep "string2" | grep "string3" : 파이프라인 이용한 순차적 필터링
 grep "<string>" <filename1> >> <filename2> : filename2에 탐색한 내용 저장
+
+```
+
+### tricks 2
+```shell
+ls | grep "<string>"
+ll | grep "<string>"
+# 현재 파일 목록에서 원하는 이름 포함한 파일 서칭
 ```
 
 
