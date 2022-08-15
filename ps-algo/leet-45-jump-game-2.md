@@ -44,3 +44,22 @@ class Solution {
 - 310ms -> 8.83% java보다 낫다
 - 118.1md -> 5.15%java 보다 낫다.
 - 배열 카피에서 불필요한 자원소모가 많은것같다. 최적화 고민좀해봐야.
+
+### Review
+- 문제 자체는 점화식 /DP 문제였네.
+
+```java
+//타인 코드
+public int jump(int[] nums) {
+	int n = nums.length;
+	int[] ans = new int[n];
+	// initialize the array with infinity
+	Arrays.fill(ans,Integer.MAX_VALUE-1);
+	ans[n-1] = 0; // opt(n) = 0 - initialization
+	for (int i = n-2; i >= 0;i--) // simply iterate over the array and set the minimum at every index
+		for (int jump = 1; jump <= nums[i] && i + jump < n; jump++)
+			ans[i] = Math.min(ans[i], ans[i+jump]+1);
+			
+	return ans[0]; // return the first element of the array - opt(1)
+}
+```
