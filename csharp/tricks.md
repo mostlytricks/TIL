@@ -50,4 +50,20 @@ double max = table.AsEnumerable().Max(r=>r.Field<double>("data"));
 // 통계치 등은 람다식 이용해서 특정 칼럼을 지정하는 방식으로 대응 가능.
 ```
 
+### DataTable to string Array (string[])
+- 특정 상황에 따라 item이 string[] 등 array 형태의 인풋을 요구하는 경우 사용할 것 (특정 column의 값만 추출하여 parameter로 넘기기 등)
 
+```c#
+DataTable targetList; // 실제로는 전달받아올것
+string[] resultArray = new string[targetList.Rows.Count];
+string targetColumn = "target"
+
+int idx =0;
+string value = String.Empty;
+foreach (DataRow dr in targetList.Rows) // targetList로도 동작
+{
+  value = dr[targetColumn].ToString();
+  resulteArray[n]= value;
+  idx++;
+}
+```
