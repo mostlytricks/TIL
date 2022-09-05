@@ -10,7 +10,26 @@
   - lombok의 @RequiredArgsConstructor 사용 + private final ~ 사용 시, 생성자를 통한 의존성 주입
   - 
 - 비권장 : @Autowired
-- 
+
+- 참고 : [망나니개발자](https://mangkyu.tistory.com/125)
+
+```java
+// 생성자를 통한 의존성 주입 예시, 이하 @autowired생략가능
+@Service
+public class UserService {
+
+    private UserRepository userRepository;
+    private MemberService memberService;
+
+    @Autowired
+    public UserService(UserRepository userRepository, MemberService memberService) {
+        this.userRepository = userRepository;
+        this.memberService = memberService;
+    }
+    
+}
+```
+
 
 
 ### Biz는 서비스가 아닌 도메인에 구성하라.
