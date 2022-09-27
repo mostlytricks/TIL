@@ -76,3 +76,34 @@ ll | grep "<string>"
 -r : routing tabl
 ```
 
+
+# ifconfig
+---
+### 기본
+- ifconfig : 네트워킹 
+
+
+# mount
+---
+### 기본
+- mount : 원격 host의 파일 시스템을 자신의 파일 시스템 사용하듯 보여주는 기능
+- unmount
+
+### tricks
+```shell
+# 부팅 시 파일 시스템 마운트하는 경우, 필요한 정보 파일 보기
+cat /etc/vfstab
+```
+
+
+# exportfs
+---
+### 기본
+- exportfs : 자신이 가진 파일 시스템을 접근 가능토록 허가
+
+### tricks
+```shell
+cat /etc/dfs/fstab
+exportfs -a # 접근 권한 부여
+exportfs -ua # 제거
+```
