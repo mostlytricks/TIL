@@ -3,6 +3,8 @@
 - DataTable ~ DataRow / DataColumn의 사용방법 유의할 것
 - LINQ?
 - partial class 등의 특성 유의할 것
+- delegate?
+- []의 사용법
 
 ### LINQ
 - Language Integrated Query.
@@ -67,3 +69,21 @@ foreach (DataRow dr in targetList.Rows) // targetList로도 동작
   idx++;
 }
 ```
+
+### delegate
+- 대리자, 파라미터와 함께 메서드 전달 시 사용
+- ms 공식 문서 참조할 것
+
+
+### [] 사용법
+
+```c#
+[OperationContract(alpha = beta)]
+void Say(string sth);
+
+(...)
+```
+메소드 앞에 대괄호로 작성된 하는 기법 : '사전 정의된 속성'
+-> 런타임에 특정 정보를 전달하는 태그
+-> 클래스, 메소드, 구조체, enum, assembly 등
+-> 외부(DLL)로부터 선언된 메소드를 사용할 때 이용한다고 한다.
