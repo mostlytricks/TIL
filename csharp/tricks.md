@@ -6,9 +6,12 @@
 - delegate?
 - []의 사용법
 
+---
+
 ### LINQ
 - Language Integrated Query.
 - IENumerable Interface를 지원하는 모든 Collection 객체에 적용 가능. (Array, DataTable 등)
+
 
 #### 사용 예제
 ```c#
@@ -52,6 +55,7 @@ double max = table.AsEnumerable().Max(r=>r.Field<double>("data"));
 // 통계치 등은 람다식 이용해서 특정 칼럼을 지정하는 방식으로 대응 가능.
 ```
 
+--- 
 ### DataTable to string Array (string[])
 - 특정 상황에 따라 item이 string[] 등 array 형태의 인풋을 요구하는 경우 사용할 것 (특정 column의 값만 추출하여 parameter로 넘기기 등)
 
@@ -70,10 +74,28 @@ foreach (DataRow dr in targetList.Rows) // targetList로도 동작
 }
 ```
 
+### DataTable to List (specific column data) 
+- 이것도 조금 트리키하다. python의 list comprehension 스럽긴한데 참고해두자.
+
+```c#
+DataTable dt= new DataTable();
+List<string> sampleList = (from row in dt.AsEnumerable() select row.Field<string>("COL_NAME")).ToList();
+
+
+```
+- from a select b 기법 유의할 것
+- Field사용이 numerator 사용 핵심으로 보인다.
+- vector to List말고도 응용 가능할 것으로 보임.
+
+
+---
+
 ### delegate
 - 대리자, 파라미터와 함께 메서드 전달 시 사용
 - ms 공식 문서 참조할 것
 
+
+---
 
 ### [] 사용법
 
