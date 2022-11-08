@@ -45,5 +45,25 @@ public class RotateArray {
 
 }
 ```
-
 - 기능 확인은 덜했지만.. 자바의 객체 값 copy때문에 주의할 지점이 있던 것으로 기억. 
+
+    
+--- 
+### Data Structure / enum / class
+
+##### enum
+```java
+enum Omega{
+    RED(3), BETA(4),GAMMA(5),
+    
+    private final int value; // 고정된 상수값을 만든다. 여기서 지정한 타입으로 value 설정 가능
+    Omega(int value){this.value = value;}
+    public int getValue(){return value;}
+}
+//사용
+    
+Omega.values(); // 전체 배열, 내부 값이 아닌 앞의RED와 같은 const를 불러온다.
+Omega.valueOf("BETA") //일치하는 애를 불러온다.
+```
+    
+    
