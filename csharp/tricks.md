@@ -87,6 +87,20 @@ List<string> sampleList = (from row in dt.AsEnumerable() select row.Field<string
 - Field사용이 numerator 사용 핵심으로 보인다.
 - vector to List말고도 응용 가능할 것으로 보임.
 
+---
+
+### DataRow to Dictionary 
+- 이건 미쳤다. 아니 왜 이렇게까지.
+
+```c#
+DataRow. row; // 목적하는 row를 사용하자.
+var dictionary = row.Table.Columns.Cast<DataColumn>().ToDictionary(col => col.ColumnName, col=>row[col.ColumnName]);
+
+```
+DataRow에 Columns만 담는게아니라 Table을보는게 왜일까 싶었는데, 이런 활용이 가능했다.
+
+
+
 
 ---
 
