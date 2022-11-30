@@ -52,3 +52,9 @@ micronaut:
 ```
 - 8080이 기본값이다.
 - akhq~: 브로커를 명시해줘야한다.
+
+
+### java app내 실행
+- org.apache.kafka -> kafka-clients설치. 
+- Producer, Properties 객체 생성해서 사용한다.
+- 
